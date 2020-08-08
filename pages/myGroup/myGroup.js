@@ -1,6 +1,7 @@
 // pages/my/my.js
 const app = getApp();
 const neil = require('../../utils/request.js');
+const util = require('../../utils/util.js');
 
 Page({
 
@@ -43,6 +44,33 @@ Page({
   onShow(){
     
   },
+
+  // 提现
+  goWrap: util.debounce(function () {
+    let that = this;
+    that.IsLogin();
+    neil.post('/am/cps/getissigning', {
+      id: that.data.userInfo.userid
+    }, function (res) {
+      if(res.data.result == 'null'){//跳转用户协议
+        neil.post('/am/cps/wdsigning', {
+          userId: parseFloat(that.data.userInfo.userid),
+          userName:that.data.userInfo.realname,
+          cid:that.data.userInfo.idcardno,
+          cidType:0,
+          openId:that.data.userInfo.openId
+        }, function (res) {
+          wx.navigateTo({
+            url: '/pages/webview1/webview1?http='+res.data.result,
+          })
+        }, null, false)
+      }else{//跳转到提现
+        wx.navigateTo({
+          url: '/pages/draw/draw',
+        })
+      }
+    }, null, false)
+  }, 500),
    
   // 轮播的change事件
   swiperChange(e){
@@ -64,18 +92,6 @@ Page({
     that.setData({
       userInfo: wx.getStorageSync('userInfo') || null,
     })
-    if (that.data.userInfo.roleid == 3) {
-      wx.setNavigationBarColor({
-        backgroundColor: '#D2E3EF',
-        frontColor: '#000000'
-      })
-    }
-    if (that.data.userInfo.roleid !== 3) {
-      wx.setNavigationBarColor({
-        backgroundColor: '#EEE9E0',
-        frontColor: '#000000'
-      })
-    }
       // 刷新我的圈子
     let url = '/xks/xksxcx/getquanzicomm';
     neil.post(url, {

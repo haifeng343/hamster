@@ -19,6 +19,9 @@ Page({
       {
         id: 1,
         name: '待付款'
+      },{
+        id: 4,
+        name: '已发货'
       },
       {
         id: 5,
@@ -41,6 +44,11 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    if(options){
+      this.setData({
+        active:parseFloat(options.status)
+      })
+    }
     this.init();
   },
   init() {

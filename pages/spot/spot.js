@@ -122,9 +122,24 @@ Page({
   // 上传图片
   upload(status) {
     let that = this;
-    wx.chooseImage({
+    wx.showActionSheet({
+      itemList: ['去拍照', '从相册选取'],
       success(res) {
-        console.log(res)
+        if (res.tapIndex == 0) {
+          that.choose(status, 0)
+        }
+        if (res.tapIndex == 1) {
+          that.choose(status, 1)
+        }
+      }
+    })
+  },
+  // 本地 / 拍照
+  choose(status, index) {
+    let that = this;
+    wx.chooseImage({
+      sourceType: index == 1?['album']:['camera'],
+      success(res) {
         wx.uploadFile({
           url: neil.baseUrl + '/api/xksxcx/ocridcrad', //开发者服务器地址
           filePath: res.tempFilePaths[0],
@@ -152,6 +167,8 @@ Page({
       }
     })
   },
+
+  // 鉴别照片类型
   sendCard(img, status) {
     let that = this;
     let url = '/api/xksxcx/ocridcradsss';
@@ -293,7 +310,7 @@ Page({
         bankno: that.data.cardNumber,
       }
       neil.post(url, params, function (res) {
-        let userInfo1 = that.data.userInfo;//暂无银行卡
+        let userInfo1 = that.data.userInfo; //暂无银行卡
         userInfo1.bankimg = that.data.img3;
         userInfo1.bankno = that.data.cardNumber;
         wx.setStorageSync('userInfo', userInfo1);

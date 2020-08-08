@@ -7,6 +7,9 @@
   align-items: center;
   justify-content: center;
 }
+.item-txt2{
+  color: #FF8732!important;
+}
 .map{
   width:auto
 }

@@ -93,10 +93,7 @@
   flex-direction: column;
   justify-content: space-around;
 }
-.item-content{
-  background: #F1F1F1!important;
-  margin-bottom: 22rpx!important;
-}
+
 .item-status{
   margin-top: 0!important;
 }

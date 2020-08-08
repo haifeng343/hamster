@@ -285,6 +285,12 @@
 					"pathName": "pages/payeor/payeor",
 					"query": "orderno=2008071258789093&realpay=5880",
 					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/myGroup/myGroup",
+					"pathName": "pages/myGroup/myGroup",
+					"scene": null
 				}
 			]
 		}

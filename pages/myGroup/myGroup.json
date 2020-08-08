@@ -1,3 +1,5 @@
 {
-  "navigationBarTitleText": "我的圈子"
+  "navigationBarTitleText": "我的圈子",
+  "navigationBarTextStyle": "white",
+  "navigationBarBackgroundColor": "#2A6DFF"
 }

@@ -7,8 +7,10 @@
 			<view class="mTop-content-right">
 				<view class="mTop-user">
 					<view class="mTop-content-name">{{userInfo.nickname}}</view>
-					<view class="mTop-mark" wx:if="{{mark == 3}}">普通用户</view>
+					<!-- <view class="mTop-mark" wx:if="{{mark == 3}}">普通用户</view> -->
 				</view>
+				<image src="../../image/hehuo.png" wx:if="{{mark !== 3}}" class="hehuo"></image>
+				<image src="../../image/putong.png" wx:else class="hehuo"></image>
 			</view>
 		</view>
 		<view class="ul">
@@ -56,19 +58,31 @@
 		</view>
 	</view>
 
-	<!-- 轮播通告 -->
-	<view class="swiper">
-		<image src="../../image/bell.png" class="bell"></image>
-		<swiper autoplay="true" current="{{current}}" interval="{{interval}}" bindanimationfinish="swiperChange" class="swipers" circular="true">
-			<swiper-item catchtouchmove="stopTouchMove" class="swipers-item" wx:for="{{swiper}}" wx:key="index">
-				<view class="wrap">{{item}}</view>
-			</swiper-item>
-		</swiper>
+<view class="menu">
+	<view class="menuTitle">我的订单</view>
+	<view class="menuList">
+		<view class="menuItem" catchtap="goMyOrder" data-status="{{1}}">
+			<image src="../../image/order1.png" class="menuImg"></image>
+			<view>待付款</view>
+		</view>
+		<view class="menuItem" catchtap="goMyOrder" data-status="{{4}}">
+			<image src="../../image/order2.png" class="menuImg"></image>
+			<view>已发货</view>
+		</view>
+		<view class="menuItem" catchtap="goMyOrder" data-status="{{5}}">
+			<image src="../../image/order3.png" class="menuImg"></image>
+			<view>待收货</view>
+		</view>
+		<view class="menuItem" catchtap="goMyOrder" data-status="{{6}}">
+			<image src="../../image/order4.png" class="menuImg"></image>
+			<view>待评价</view>
+		</view>
 	</view>
+</view>
 
 	<!-- 我的菜单栏 -->
 	<view class="list">
-		<view class="item" bindtap="goMyOrder">
+		<!-- <view class="item" bindtap="goMyOrder">
 			<view class="item-left">
 				<image src="../../image/m1.png" class="img1"></image>
 				<view class="item-title">我的订单</view>
@@ -77,7 +91,7 @@
 				<view class="item-txt1"></view>
 				<image src="../../image/right.png" class="right"></image>
 			</view>
-		</view>
+		</view> -->
 		<view class="item" bindtap="goAddress">
 			<view class="item-left">
 				<image src="../../image/m8.png" class="img1"></image>

@@ -5,7 +5,7 @@ page{
 }
 .form{
   width:706rpx;
-  height:450rpx;
+  height:auto;
   background:rgba(255,255,255,1);
   box-shadow:0 0 30rpx 0 rgba(222,229,242,1);
   border-radius:10rpx;
@@ -13,6 +13,9 @@ page{
   display: flex;
   flex-direction: column;
   font-size: 28rpx;
+}
+input{
+  width: 100%;
 }
 .form-item{
   width: 90%;
@@ -55,6 +58,8 @@ page{
   display: flex;
   justify-content: space-between!important;
   position: relative;
+  height: 100rpx;
+  align-items: center;
 }
 .v1{
   display: flex;

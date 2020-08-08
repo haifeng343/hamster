@@ -335,6 +335,7 @@ background:linear-gradient(90deg,rgba(84,166,255,1) 0%,rgba(42,109,255,1) 100%);
   margin: 0 auto 20rpx;
   display: flex;
   flex-direction: column;
+  overflow: hidden;
   justify-content: flex-start;
 }
 

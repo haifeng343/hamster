@@ -7,11 +7,14 @@
 			<view class="mTop-content-right">
 				<view class="mTop-user">
 					<view class="mTop-content-name">{{userInfo.nickname}}</view>
+					<!-- <view class="mTop-mark" wx:if="{{mark == 3}}">普通用户</view> -->
 				</view>
+				<image src="../../image/hehuo.png" wx:if="{{mark !== 3}}" class="hehuo"></image>
+				<image src="../../image/putong.png" wx:else class="hehuo"></image>
 			</view>
 		</view>
 		<view class="ul">
-			<view class="li">
+			<view class="li" catchtap="goWrap">
 				<view>{{userInfo.balance}}</view>
 				<view>我的佣金</view>
 			</view>
@@ -24,7 +27,7 @@
 				<view>我的积分</view>
 			</view>
 		</view>
-		<view class="ul" wx:if="{{mark == 4 || mark == 5 || mark == 6}}">
+		<!-- <view class="ul" wx:if="{{mark == 4 || mark == 5 || mark == 6}}">
 			<view class="li">
 				<view>{{userDetail.salesmonth}}</view>
 				<view>当月销量</view>
@@ -37,7 +40,7 @@
 				<view>{{userDetail.custommonth}}</view>
 				<view>当月新客户</view>
 			</view>
-		</view>
+		</view> -->
 	</view>
 
 	<!-- 未登录 -->
@@ -123,7 +126,7 @@
 					<view class="table-item-user">
 						<image src="../../image/avatorBg.png" wx:if="{{index==0}}" class="avatorBg"></image>
 						<image class="table-item-avator" src="{{item.avatar}}"></image>
-						<view class="table-item-name wrap">{{item.realname}}</view>
+						<view class="table-item-name wrap">{{item.realname?item.realname:'暂无昵称'}}</view>
 					</view>
 					<view class="table-item-number">{{item.order_score?item.order_score:0}}</view>
 				</view>

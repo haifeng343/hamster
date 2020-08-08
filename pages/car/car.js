@@ -83,15 +83,7 @@ Page({
   },
 
   onShow() {
-    let that = this;
-    // if (wx.getStorageSync('isGetCarList')) {
-      that.init();
-      that.setData({
-        checkList: [],
-        payMoney: 0,
-        save: 0,
-      })
-    // }
+
   },
   // 获取购物车包列表
   init() {

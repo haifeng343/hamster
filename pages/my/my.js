@@ -94,18 +94,6 @@ Page({
     that.setData({
       userInfo: wx.getStorageSync('userInfo') || null,
     })
-    if (that.data.userInfo.roleid == 3) {
-      wx.setNavigationBarColor({
-        backgroundColor: '#D2E3EF',
-        frontColor: '#000000'
-      })
-    }
-    if (that.data.userInfo.roleid !== 3) {
-      wx.setNavigationBarColor({
-        backgroundColor: '#EEE9E0',
-        frontColor: '#000000'
-      })
-    }
   },
   // 未登录请先登录
   IsLogin() {
@@ -146,10 +134,10 @@ Page({
   }, 500),
 
   // 我的订单
-  goMyOrder: util.debounce(function () {
+  goMyOrder: util.debounce(function (e) {
     this.IsLogin();
     wx.navigateTo({
-      url: '/pages/order/order',
+      url: '/pages/order/order?status='+e.currentTarget.dataset.status,
     })
   }, 500),
 
