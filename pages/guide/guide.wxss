@@ -1,0 +1,41 @@
+page{
+  background: #fff;
+}
+.video{
+  width: 100%;
+  height: 300rpx;
+}
+.page-section-spacing{
+  margin-top: 60rpx;
+}
+.video-item{
+  background-color: yellow;
+  height: 240rpx;
+  width: 100%;
+  /* margin-top: 8rpx; */
+  display: flex;
+}
+.nine{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+}
+.item{
+  width: 250rpx;
+  height: 250rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: yellow;
+  box-sizing: border-box;
+  border: 1px solid #452394;
+}
+.lesson{
+  height: 192rpx;
+  width: 43%;
+  background-color: #fff;
+  margin: 10% 0 10% 4%;
+  border-radius: 3%;
+}

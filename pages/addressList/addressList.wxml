@@ -1,0 +1,44 @@
+<view class="list-address" wx:if="{{list.length}}">
+	<view class="item-address" wx:for="{{list}}" wx:key="index" data-id="{{item.id}}" catchtap="setId">
+		<view class="item-address-right">
+			<view class="item-addres-top">
+				<view class="item-address-name">
+					{{item.username}}
+				</view>
+				<view class="item-address-mobile">{{item.phone}}</view>
+			</view>
+			<view class="item-address-email">{{item.email}}</view>
+			<view class="columnWrap">{{item.provinceName+item.cityName+item.areaName+item.address}}</view>
+			<view class="addListFooter">
+				<radio-group bindchange="selectChange" wx:if="{{status !== 1}}">
+					<radio value="{{item.id}}" color="#fff" class="item-address-radio1" checked="{{item.ischeck == 1}}">
+						<view wx:if="{{item.ischeck == 1}}" class="{{item.ischeck == 1?'moxuan':''}}">默认地址</view>
+						<view wx:else>设为默认地址</view>
+					</radio>
+				</radio-group>
+				<view class="component">
+					<view class="component-item" data-item="{{item}}" catchtap="edit">
+						<image src="../../image/edit1.png" class="component-itemImg"></image>
+						<view>编辑</view>
+					</view>
+					<view class="component-item" data-id="{{item.id}}" catchtap="deleted">
+						<image src="../../image/delete1.png" class="component-itemImg"></image>
+						<view>删除</view>
+					</view>
+				</view>
+			</view>
+		</view>
+		<!-- <image src="../../image/more.png" class="more" data-item="{{item}}" catchtap="more"></image> -->
+	</view>
+	</view>
+
+	<view class="no-show" wx:else>
+		<image src="../../image/noAddress.png" class="noImg2"></image>
+		<view class="no-txt">请填写收货地址</view>
+	</view>
+
+
+
+	<view class="address_btn {{isIphoneX==true?'address_btn_phx':''}}" bindtap="goAddress">
+		+ 新增收货地址
+	</view>

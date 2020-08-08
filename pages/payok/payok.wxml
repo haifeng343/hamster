@@ -1,0 +1,18 @@
+<view class="kip">
+  <image src="../../image/payok.png" class="payok"></image>
+  <view class="kpl">
+    <view class="txt1">支付成功！</view>
+    <view class="txt2">感谢您的购买</view>
+  </view>
+  <view class="fixed">
+    <view class="money">￥<text class="number">{{money}}</text></view>
+    <view class="item">订单号：{{orderno}}</view>
+    <view class="item">下单时间：{{dayTime}}</view>
+    <view class="item">支付方式：微信支付</view>
+  </view>
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>
+</view>
+<view class="look" catchtap="look">查看订单</view>

@@ -1,0 +1,47 @@
+page{
+  background: #fff;
+}
+.warrant{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.img1{
+  width: 200rpx;
+  height: 200rpx;
+  border-radius: 100%;
+  margin-bottom: 40rpx;
+  margin-top: 180rpx;
+}
+.title{
+  font-size: 42rpx;
+  color: #333;
+}
+.txt{
+  font-size: 26rpx;
+  color: #666;
+  width: 82%;
+  line-height: 42rpx;
+  margin: 80rpx auto;
+}
+.btn1,.btn2{
+  width: 600rpx!important;
+  height: 80rpx;
+  border-radius: 35rpx;
+  background: #007aba;
+  color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.btn2{
+  background: #fff;
+  border: 4rpx solid #007aba;
+  color: #007aba;
+  margin-top: 30rpx!important;
+}

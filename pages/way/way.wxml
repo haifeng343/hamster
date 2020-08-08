@@ -1,0 +1,18 @@
+<!-- 支付方式 -->
+<view  class="form" wx:if="{{num == 1}}">
+  <view class="form-item" wx:for="{{payList}}" wx:key="index" data-id="{{item.id}}" catchtap="navgaTo">
+    <view class="form-item-label">{{item.name}}</view>
+    <text class="hot" wx:if="{{item.tag}}">{{item.tag}}</text>
+    <text class="form-item-txt" wx:if="{{item.txt}}">{{item.txt}}</text>
+    <image src="/image/gou.png" class="gou" wx:if="{{item.flag==true}}"></image>
+  </view>
+</view>
+<!-- 配送方式 -->
+<view  class="form" wx:if="{{num == 2}}">
+  <view class="form-item" wx:for="{{deliveryList}}" wx:key="index" data-id="{{item.id}}" catchtap="navgaTo">
+    <view class="form-item-label">{{item.name}}</view>
+    <text class="form-item-txt" wx:if="{{item.txt}}"><text wx:if="{{item.flag1}}">¥</text>{{item.txt}}</text>
+    <image src="/image/gou.png" class="gou" wx:if="{{item.flag==true}}"></image>
+    <image src="../../image/cha.png" class="gou" wx:else></image>
+  </view>
+</view>

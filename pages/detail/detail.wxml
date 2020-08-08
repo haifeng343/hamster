@@ -1,0 +1,129 @@
+<view class="content">
+	<swiper class="swiper" indicator-dots="true" indicator-active-color="#fff" autoplay="{{true}}" bindanimationfinish="swiperChange" current="{{current}}" circular="true">
+		<swiper-item wx:for="{{banner}}" wx:key="index">
+			<image src="{{item}}" catchtap="priview" class="banner1"></image>
+		</swiper-item>
+	</swiper>
+
+	<!-- 产品信息 -->
+	<view class="content">
+		<view class="content1">
+			<view class="content2">
+				<view class="title pd">{{detail.planname}}</view>
+				<view class="time wrap pd">{{detail.worktime}}</view>
+				<view class="money2 wrap pd">¥{{detail.price}}<text class="old_price2">￥{{detail.original_price}}</text></view>
+			</view>
+			<view class="detail-title pd">产品型号</view>
+			<view class="detail-list pd">
+				<view class="detail-item {{showId == item.planid ? 'active1' : ''}}" wx:for="{{detail.list}}" wx:key="index" data-id="{{item.planid}}" catchtap="{{showId == item.planid?'':'setItem'}}">{{item.planname}}</view>
+			</view>
+			<view class="pay">
+				<view class="payTitle">购买数量</view>
+				<view class="main-item-computed">
+					<image src="../../image/remove.png" class="main-item-img1" data-id="{{item.planid}}" data-num="1" bindtap="computedCount"></image>
+					<input type="number" maxlength="3" class="main-item-input" value="{{number}}" bindinput="hasNumber" data-id="{{item.planid}}"></input>
+					<image src="../../image/add.png" class="main-item-img1" data-id="{{item.planid}}" data-num="2" bindtap="computedCount"></image>
+				</view>
+			</view>
+		</view>
+		<view class="borBottom"></view>
+	</view>
+
+	<!-- 产品介绍 -->
+	<view class="content" wx:if="{{detail.brief !== '1' || !detail.brief}}">
+		<view class="content1">
+			<view class="detail-title pd">产品介绍</view>
+			<view class="txt1">{{detail.brief}}</view>
+		</view>
+		<view class="borBottom"></view>
+	</view>
+
+	<!-- 服务流程 -->
+	<view class="content">
+		<view class="content1">
+			<view class="detail-title pd">服务流程</view>
+			<view class="processList pd">
+				<view class="processItem">
+					<view class="processLabel">· STEP 1</view>
+					<view class="processTxt">用户下单</view>
+				</view>
+				<view class="processItem">
+					<view class="processLabel">· STEP 2</view>
+					<view class="processTxt">小科鼠接单</view>
+				</view>
+				<view class="processItem">
+					<view class="processLabel">· STEP 3</view>
+					<view class="processTxt">小科鼠发货/开展实验</view>
+				</view>
+				<!-- <view class="processItem">
+					<view class="processLabel">STEP 4</view>
+					<view class="processTxt">小科鼠预测靶点的特异性与结构、构建慢病毒干扰质粒、进行鉴定测序抽提服务</view>
+				</view> -->
+				<view class="" wx:if="{{detail.remarkone}}">
+					<view class="processLabelDec">产品说明</view>
+					<view class="processTxt"></view>
+				</view>
+				<view class="processItem" wx:if="{{detail.remarktwo !== '0'}}">
+					<!-- <view class="processLabel">STEP 5</view> -->
+					<view class="processTxt">{{detail.remarkone+' '+detail.remarktwo}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="borBottom"></view>
+	</view>
+
+	<!-- 售后服务 -->
+	<view class="content" wx:if="{{detail.intr !== '1' || !detail.intr}}">
+		<view class="content1">
+			<view class="detail-title pd">售后服务</view>
+			<view class="txt1">{{detail.intr}}</view>
+		</view>
+		<view class="borBottom"></view>
+	</view>
+
+	<!-- 为您推荐 -->
+	<view class="content" wx:if="{{list.length}}">
+		<view class="content1">
+			<view class="detail-title pd ">为您推荐</view>
+			<view class="list pd">
+				<view class="listitem" wx:for="{{list}}" wx:key="index" data-id="{{item.planid}}" data-name="{{item.planname}}" catchtap="toDetail">
+					<image class="img1" lazy-load="true" src="{{baseUrl+item.pic}}"></image>
+					<view class="item-content">
+						<view class="item-txt">
+							<view class="item-title columnWrap">{{item.planname}}</view>
+							<view class="wrap item-txt1">{{item.remarkone}}</view>
+							<view class="wrap">{{item.worktime}}</view>
+						</view>
+						<view class="item-footer">
+							<view class="wrap item-price">
+								<text class="money">¥{{item.price}}</text><text class="old_price">￥{{item.original_price}}</text>
+							</view>
+							<image src="../../image/addCar.png" data-id="{{item.planid}}" catchtap="addCardCount" class="car"></image>
+						</view>
+					</view>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+<view class="lastChild" style="height:{{isIphoneX==true?'180rpx':'100rpx'}}"></view>
+
+<view class="fixed-car shadow {{isIphoneX==true?'b68':''}}">
+	<view class="flex-car-left">
+		<button open-type="contact" class="cont1">客服</button>
+		<view open-type="contact" class="flex-car-leftItem">
+			<image src="../../image/contact1.png" class="flex-car-leftItemImg"></image>
+			<view>客服</view>
+		</view>
+		<view class="flex-car-leftItem flex-car-ml58" catchtap="goCar">
+			<image src="../../image/gouwuche.png" class="flex-car-leftItemImg"></image>
+			<view>购物车</view>
+		</view>
+	</view>
+	<view class="flex-car-right">
+		<view class="btn1 car1" bindtap="addCar">添加进购物车</view>
+		<!-- <view class="btn1 btn2" bindtap="goPay">去购物车结算</view> -->
+		<view class="btn1 btn2" bindtap="goCar">去购物车结算</view>
+	</view>
+</view>

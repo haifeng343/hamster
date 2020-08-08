@@ -1,0 +1,43 @@
+<view class="list">
+  <view class="item">
+    <view class="item-time">
+      <view>2019-07-28</view>
+      <view>佣金：<text class="money">¥256</text></view>
+    </view>
+    <view class="item-content">
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+    </view>
+  </view>
+  <view class="item">
+    <view class="item-time">
+      <view>2019-07-28</view>
+      <view>佣金：<text class="money">¥256</text></view>
+    </view>
+    <view class="item-content">
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+      <view class="flex-between">
+        <view class="txt1 wrap">小科鼠定制商品（千元级）</view>
+        <view class="txt2 wrap">消费：¥1000</view>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="lastTxt">佣金比例根据合伙人当前等级计算</view>

@@ -1,0 +1,38 @@
+page{
+  background-color: #fff;
+}
+.container1{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.payeor{
+  width: 354rpx;
+  height: 292rpx;
+  margin: 209rpx auto 95rpx;
+}
+.txt1{
+  font-size: 40rpx;
+  color: #3A3A3A;
+  font-weight:500;
+  margin-bottom: 2rpx;
+}
+.txt2{
+  color: #BABABA;
+  font-size: 30rpx;
+}
+.look{
+  width:408rpx;
+  height:100rpx;
+  background:rgba(255,101,84,1);
+  border-radius:50px;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30rpx;
+  margin: 82rpx auto 36rpx;
+}

@@ -1,0 +1,13 @@
+.nohas{
+  width: 100%;
+  height: 300rpx;
+  font-size: 28rpx;
+  display: flex;
+  color: #BCBCBC;
+  align-items: center;
+  justify-content: center;
+}
+.map{
+  width:auto
+}
+@import '../my/my.wxss'

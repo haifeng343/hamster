@@ -1,0 +1,6 @@
+<view class="container">
+  <rich-text class="content" nodes="{{node}}"></rich-text>
+
+  <view class="btn1" catchtap="agree">我同意以上协议</view>
+  <view class="lastChild"></view>
+</view>

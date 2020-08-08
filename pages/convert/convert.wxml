@@ -1,0 +1,24 @@
+<view class="mTop">
+	<image src="../../image/convertBg.png" class="convertBg"></image>
+	<view class="mili" catchtap="goLog">米粒记录</view>
+	<view class="mTop-txt">
+		<view class="txt1">当前<text class="count1">888</text>个</view>
+		<image src="../../image/mi.png" class="mi"></image>
+	</view>
+	<view class="time">2019-04-12 加入小科鼠</view>
+</view>
+
+<view class="list-title">礼品列表</view>
+
+<view class="list1">
+	<view class="item1" wx:for="{{list}}" wx:key="index">
+		<image src="../../image/avator.png" class="itemImg1"></image>
+		<view class="item1-content">
+			<view class="item1-txt1 columnWrap">{{item.name}}</view>
+			<view class="item1-txt2 wrap">{{item.price}}米粒</view>
+		</view>
+		<view class="btn1">兑换</view>
+	</view>
+</view>
+
+  <view class="end">end</view>

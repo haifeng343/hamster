@@ -1,0 +1,7 @@
+<view class="content">
+  <rich-text nodes="{{node1}}" wx:if="{{type == 1}}"></rich-text>
+  <rich-text nodes="{{node2}}" wx:if="{{type == 2}}"></rich-text>
+  <rich-text nodes="{{node4}}" wx:if="{{type == 4}}"></rich-text>
+  <rich-text nodes="{{node4}}" wx:if="{{type == 5}}"></rich-text>
+  <rich-text nodes="{{node4}}" wx:if="{{type == 6}}"></rich-text>
+</view>

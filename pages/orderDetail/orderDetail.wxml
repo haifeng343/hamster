@@ -1,0 +1,184 @@
+<!-- 订单详情 -->
+<view class="mTop" wx:if="{{status == 2}}">
+	<view class="mTop-top">
+		<view class="mtop48">
+			<image src="../../image/gouwu.png" class="shop"></image>
+			<view class=" wrap" wx:if="{{detail.status == 1}}">待支付</view>
+			<view class=" wrap" wx:if="{{detail.status == 2 || detail.status == 3}}">未受理</view>
+			<view class=" wrap" wx:if="{{detail.status == 4}}">已受理</view>
+			<!-- <view class=" wrap" wx:if="{{detail.status == 5}}">已发货</view>
+			<view class=" wrap" wx:if="{{detail.status == 6}}">已收货</view>
+			<view class=" wrap" wx:if="{{detail.status == 7}}">已评价</view> -->
+			<view class=" wrap" wx:if="{{detail.status == 8}}">已取消</view>
+			<view class=" wrap" wx:if="{{detail.status == 9}}">退款中</view>
+			<!-- <view class=" wrap" wx:if="{{detail.status == 10}}">客服退款</view> -->
+			<view class=" wrap" wx:if="{{detail.status == 11}}">退款成功</view>
+		</view>
+		<view class="home" catchtap="goHome">返回首页</view>
+	</view>
+	<view class="mTop-content" wx:if="{{detail.address_id !== 0}}">
+		<view class="mTop-content-left">
+			<image src="../../image/dizhi.png" class="adrImg"></image>
+		</view>
+		<view class="mTop-content-right">
+			<view class="wrap">{{detail.username}}<text class="name">{{detail.phone}}</text></view>
+			<view class="txt1 columnWrap">{{detail.provinceName+detail.cityName+detail.areaName+detail.address}}</view>
+		</view>
+	</view>
+</view>
+<!-- 订单支付 -->
+<view class="container" wx:if="{{status == 1}}">
+	<view class="form">
+		<!-- <view class="form-item" data-num="1" bindtap="capTo"> -->
+		<view class="form-item" data-num="1">
+			<view>支付方式</view>
+			<view class="form-item-right">
+				<view class="form-item-right-txt">{{payId==1?'微信支付':payTxt}}</view>
+				<!-- <image src="../../image/right.png" class="right"></image> -->
+			</view>
+		</view>
+		<view class="form-item" data-num="2" bindtap="capTo">
+			<view>配送方式</view>
+			<view class="form-item-right">
+				<view class="form-item-right-txt {{delTxt?'':'t1'}}">{{delId>0?delTxt:'点击选择'}}</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="form-item form-item1" data-num="3" catchtap="capTo" wx:if="{{recevierInfo && delId !== 3 }}">
+			<view class="form-item-content">
+				<view>收货人:</view>
+				<view class="form-item-right">
+					<view class="form-item-right-txt1">
+						<view class="form-item-name">
+							{{recevierInfo.username}}
+						</view>
+						<view>
+							{{recevierInfo.phone}}
+						</view>
+					</view>
+					<image src="../../image/right.png" class="right"></image>
+				</view>
+			</view>
+			<view class="form-item-content">
+				<view>邮箱地址:</view>
+				<view class="form-item-right form-item-right1">
+					{{recevierInfo.email}}
+				</view>
+			</view>
+			<view class="form-item-content" wx:if="{{recevierInfo}}">
+				<view>收货地址:</view>
+				<view class="form-item-right form-item-right1">
+					{{recevierInfo.provinceName+''+recevierInfo.cityName+''+recevierInfo.areaName+''+recevierInfo.address}}
+				</view>
+			</view>
+		</view>
+		<view class="form-item" data-num="3" bindtap="capTo" wx:if="{{delId !== 3 && !recevierInfo}}">
+			<view>收货信息</view>
+			<view class="form-item-right">
+				<view class="form-item-right-txt t1">点击填写</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="form-item">
+			<view>备注:</view>
+			<view class="form-item-right">
+				<input class="input1" maxlength="50" placeholder=" 需要开发票或其他内容请在备注中写明" bindinput="hasRemark" value="{{remark}}"></input>
+			</view>
+		</view>
+	</view>
+</view>
+
+<!-- 订单详情 -->
+
+<scroll-view scroll-y="true" class="scroll" wx:if="{{status == 2}}">
+	<view class="item">
+		<view class="item-top">
+			<view class="item-top-left">
+				<view class="item-top-title">订单编号：</view>
+				<view class="item-top-code wrap">{{detail.ordercode}}</view>
+			</view>
+		</view>
+		<view class="item-content" wx:for="{{detail.list}}" wx:key="index">
+			<image class="item-logo" src="{{baseUrl+item.pic}}"></image>
+			<view class="item-content-right">
+				<view class="item-content-title wrap">{{item.planname}}</view>
+				<view>
+					<view class="wrap num">X{{item.num}}</view>
+					<view class="wrap money">¥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="item-status">
+			<view class="item-status-txt1"></view>
+			<view class="item-status-count">共{{allCount}}件商品 合计：<text class="price">¥{{detail.payMoney}}</text></view>
+		</view>
+		<view class="fare" wx:if="{{detail.riceprice}}">已使用米粒：¥{{detail.riceprice}}</view>
+		<view class="fare">运费：¥{{detail.trans_money}}</view>
+		<view class="footer">
+			<view class="item-status-count flex-end">合计：<text class="price">¥{{detail.payAllMoney}}</text></view>
+			<view class="flex-end mt34">
+				<button open-type="contact" class="conta btn">联系客服</button>
+				<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="payCancel">取消订单</view>
+				<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="pay1">立即支付</view>
+				<view class="btn" wx:if="{{detail.status == 3}}" data-item="{{detail}}" catchtap="refund">退款申请</view>
+				<view class="btn" wx:if="{{detail.status == 8 || detail.status == 11}}" data-item="{{detail}}" catchtap="deleted">删除订单</view>
+			</view>
+		</view>
+	</view>
+</scroll-view>
+
+<!-- 支付订单 -->
+<scroll-view scroll-y="true" class="scroll" wx:if="{{status == 1}}">
+	<view class="item">
+		<view class="item-content" wx:for="{{checkList}}" wx:key="index">
+			<image class="item-logo" src="{{baseUrl+item.pic}}"></image>
+			<view class="item-content-right">
+				<view class="item-content-title wrap">{{item.planname}}</view>
+				<view>
+					<view class="wrap num">X{{item.plancount}}</view>
+					<view class="wrap money">¥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="item-status">
+			<view class="item-status-txt1"></view>
+			<view class="item-status-count">共{{total}}件商品 合计：<text class="price">¥{{payMoney}}</text></view>
+		</view>
+		<view class="fare fare1" wx:if="{{riceprice>0}}">
+			<checkbox wx:if="{{status==1}}" checked="{{isCheck==true}}" bindtap="changeCheck">
+				<view>可抵扣米粒：¥{{kedikou}}</view>
+				<view wx:if="{{saveMili>0}}">剩余米粒：¥{{isCheck==true?saveMili:riceprice}}</view>
+			</checkbox>
+		</view>
+		<view class="fare">运费：¥{{delMoney}}</view>
+		<view class="footer footer1">
+			<view class="item-status-count flex-end">合计：<text class="price">¥{{totalMoney}}</text></view>
+			<!-- <view class="flex-end mt34">
+				<button open-type="contact" class="conta btn">联系客服</button>
+				<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="pay">立即支付</view>
+				<view class="btn" wx:if="{{detail.status == 8}}" data-item="{{detail}}" catchtap="deleted">删除订单</view>
+			</view> -->
+		</view>
+		<!-- <view class="footer">
+				<view class="flex-end">
+					<button open-type="contact" class="conta">
+						<view class="btn">联系客服</view>
+					</button>
+					<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="pay">立即支付</view>
+					<view class="btn" wx:if="{{detail.status == 8}}" data-item="{{detail}}" catchtap="pay">重新支付</view>
+				</view>
+			</view> -->
+	</view>
+	<view class="lastChild"></view>
+</scroll-view>
+
+<!-- 底部操作 -->
+<view class="footer-fixed {{isIphoneX==true?'b68':''}}" wx:if="{{status == 1}}">
+	<view class="footer-fixed-left">
+		<view class="footer-fiexd-content">
+			<view class="footer-fixed-txt1 wrap">总价：<text class="m1">¥{{totalMoney}}</text><text class="footer-fixed-small" wx:if="{{delMoney}}">（运费：¥{{delMoney}}）</text></view>
+			<view class="footer-fixed-txt2 wrap">节省：¥{{save}}</view>
+		</view>
+	</view>
+	<view class="footer-fixed-btn" catchtap="creatOrder">去支付</view>
+</view>

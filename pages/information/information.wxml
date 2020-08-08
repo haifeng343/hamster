@@ -1,0 +1,71 @@
+<view class="content">
+	<view class="navigateTor">
+		<view class="navigateTor-radiu"></view>
+		<view class="navigateTor-next">第一步</view>
+		<view class="navigateTor-radiu1"></view>
+	</view>
+	<view class="tipTxt">请上传个人真实身份证件供审核用</view>
+	<view class="ident">
+		<view class="identItem">
+			<view class="identTop" catchtap="updateUserAfter">
+				<image class="img1" src="{{img1}}"></image>
+				<view class="upload">{{img1?'更换身份证人像面':'上传身份证人像面'}}</view>
+			</view>
+		</view>
+		<view class="identItem">
+			<view class="identTop" catchtap="updateUserBefore">
+				<image class="img1" src="{{img2}}"></image>
+				<view class="upload">{{img2?'更换身份证国徽面':'上传身份证国徽面'}}</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 身份证核对 -->
+
+	<view class="navigateTor">
+		<view class="navigateTor-radiu"></view>
+		<view class="navigateTor-next">第二步</view>
+		<view class="navigateTor-radiu1"></view>
+	</view>
+	<view class="tipTxt">请核对证件信息</view>
+
+	<view class="rult">
+		<view class="rultContent">
+			<view class="rultItem">
+				<view class="rultLabel">真实姓名</view>
+				<input class="rultInput" placeholder="请输入真实姓名" type="text" value="{{name}}" bindinput="hasName"></input>
+			</view>
+			<view class="rultItem">
+				<view class="rultLabel">证件号码</view>
+				<input class="rultInput" placeholder="请输入证件号码" type="number" value="{{number}}" bindinput="hasNumber"></input>
+			</view>
+			<view class="rultItem">
+				<view class="rultLabel">证件有效期</view>
+				<input class="rultInput" placeholder="请输入证件有效期" type="text" value="{{valid_date}}" bindinput="hasDate"></input>
+			</view>
+		</view>
+	</view>
+
+	<view class="navigateTor">
+		<view class="navigateTor-radiu"></view>
+		<view class="navigateTor-next">第三步</view>
+		<view class="navigateTor-radiu1"></view>
+	</view>
+	<view class="tipTxt">三个工作日内以电话形式通知审核结果</view>
+
+	<view class="tip">审核通过后，小科鼠工作人员会主动联系你，完成资料提交与合同签订事宜。
+		不论是否通过，您的资料将储存于小科鼠内部，确保数据安全，禁止用作他途。</view>
+	<view class="lastChild"></view>
+</view>
+
+<view class="footerBtn {{isIphoneX==true?'Fixed28':''}}" bindtap="save">提交资料</view>
+
+<!-- 提交成功弹窗 -->
+<view class="mask" catchtouchmove="true" wx:if="{{IsSuccess}}"></view>
+<view class="success-dialog" wx:if="{{IsSuccess}}">
+<view class="success-radios"></view>
+  <image src="../../image/successIcon.png" class="successIcon"></image>
+  <view class="successTitle">我们已收到您的申请</view>
+  <view class="successTxt">小科鼠工作人员将在3个工作日内与您联系请保持手机畅通！</view>
+  <view class="successBtn" catchtap="closeDialog">知道了</view>
+</view>

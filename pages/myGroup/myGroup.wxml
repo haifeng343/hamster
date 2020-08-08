@@ -1,0 +1,137 @@
+<view class="content">
+
+	<!-- 头部内容区已登录 -->
+	<view class="mTop {{mark !== 1?'mTop2':''}}" wx:if="{{userInfo}}">
+		<view class="mTop-content">
+			<image class="avator {{mark !==1 ?'avator2':''}}" src="{{userInfo.avatar}}"></image>
+			<view class="mTop-content-right">
+				<view class="mTop-user">
+					<view class="mTop-content-name">{{userInfo.nickname}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="ul">
+			<view class="li">
+				<view>{{userInfo.balance}}</view>
+				<view>我的佣金</view>
+			</view>
+			<view class="li">
+				<view>{{userInfo.riceprice>0?userInfo.riceprice:0}}</view>
+				<view>我的米粒</view>
+			</view>
+			<view class="li">
+				<view>{{userInfo.integral}}</view>
+				<view>我的积分</view>
+			</view>
+		</view>
+		<view class="ul" wx:if="{{mark == 4 || mark == 5 || mark == 6}}">
+			<view class="li">
+				<view>{{userDetail.salesmonth}}</view>
+				<view>当月销量</view>
+			</view>
+			<view class="li">
+				<view>{{userDetail.commmonth}}</view>
+				<view>当月佣金</view>
+			</view>
+			<view class="li">
+				<view>{{userDetail.custommonth}}</view>
+				<view>当月新客户</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 未登录 -->
+	<view class="mTop {{mark !== 1?'mTop2':''}}" wx:else>
+		<view class="mTop-content" catchtap="goWarrant">
+			<image class="avator {{mark !==1 ?'avator2':''}}" src="../../image/avator.png"></image>
+			<view class="mTop-content-right">
+				<view class="mTop-user">
+					<view class="mTop-content-name">登录/注册</view>
+				</view>
+				<view class="tag">
+					<view class="tag-item {{mark !== 1 ?'tag-item2':''}}">个人：LV0</view>
+				</view>
+			</view>
+		</view>
+		<view class="ul">
+			<view class="li">
+				<view>0</view>
+				<view>我的佣金</view>
+			</view>
+			<view class="li">
+				<view>0</view>
+				<view>我的米粒</view>
+			</view>
+			<view class="li">
+				<view>0</view>
+				<view>我的积分</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 轮播通告 -->
+	<view class="swiper">
+		<image src="../../image/bell.png" class="bell"></image>
+		<swiper autoplay="true" current="{{current}}" bindanimationfinish="swiperChange" class="swipers" circular="true">
+			<swiper-item catchtouchmove="stopTouchMove" class="swipers-item" wx:for="{{swiper}}" wx:key="index">
+				<view class="wrap">{{item}}</view>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<!-- 初级合伙人 菜单-->
+	<view class="list">
+		<view class="item" bindtap="goShare">
+			<view class="item-left">
+				<image src="../../image/m7.png" class="img1"></image>
+				<view class="item-title">我的邀请码</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt2">邀请用户绑定</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item item-last">
+			<button open-type="contact" class="btn">1</button>
+			<view class="item-left">
+				<image src="../../image/m6.png" class="img1"></image>
+				<view class="item-title">联系客服</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1">定制需求 售后资讯 </view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+	</view>
+
+	<!-- 合伙人榜单 -->
+	<view class="table">
+		<view class="table-nav">
+			<view class="table-nav-item {{index==showNav?'active1':''}}" data-index="{{index}}" bindtap="setTableNav" wx:for="{{tableNav}}" wx:key="index">
+				{{item}}
+			</view>
+		</view>
+		<view class="table-content" wx:if="{{tableList.length>0}}">
+			<view class="table-item" wx:for="{{tableList}}" data-name="{{item.realname}}" wx:key="index" bindtap="goPayList">
+				<view class="table-item-left wrap">
+					<image src="../../image/medal1.png" wx:if="{{index==0}}" class="medal"></image>
+					<image src="../../image/medal2.png" wx:if="{{index==1}}" class="medal"></image>
+					<image src="../../image/medal3.png" wx:if="{{index==2}}" class="medal"></image>
+					<view wx:if="{{index>2}}">{{index+1}}</view>
+				</view>
+				<view class="table-item-right">
+					<view class="table-item-user">
+						<image src="../../image/avatorBg.png" wx:if="{{index==0}}" class="avatorBg"></image>
+						<image class="table-item-avator" src="{{item.avatar}}"></image>
+						<view class="table-item-name wrap">{{item.realname}}</view>
+					</view>
+					<view class="table-item-number">{{item.order_score?item.order_score:0}}</view>
+				</view>
+			</view>
+		</view>
+		<view wx:else class="table-content">
+		<view class="nohas">暂无排行</view>
+		</view>
+	</view>
+
+</view>

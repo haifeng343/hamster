@@ -1,0 +1,5 @@
+<view class="container1">
+  <image src='../../image/drawSuc.png' class="drawSuc"></image>
+  <view class="txt1">提现申请成功，请耐心等待</view>
+  <view class="btn" catchtap="goHome">回到首页</view>
+</view>

@@ -1,0 +1,52 @@
+<view class="form">
+	<view class="form-item1">
+		<view class="form-item-label">姓名</view>
+		<input type="text" placeholder-class="placeholder" disabled="true" class="form-item-input1" placeholder="请输入姓名" value="{{name}}" bindinput="hasName"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">手机</view>
+		<input type="text" placeholder-class="placeholder" type="number" class="form-item-input1" placeholder="该手机号用于接收短信" value="{{mobile}}" bindinput="hasMobile"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">职业</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="请输入职业" value="{{job}}" bindinput="hasJob"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">城市</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="您所在地区" value="{{city}}" bindinput="hasCity"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">地址</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="请输入地址" value="{{address}}" bindinput="hasAddress"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">邮箱</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="该邮箱用于接收邮件" value="{{email}}" bindinput="hasEmail"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">学校名称</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="请输入学校名称" value="{{orgName}}" bindinput="hasOrgName"></input>
+	</view>
+	<view class="form-item1">
+		<view class="form-item-label">学校邮编</view>
+		<input type="text" placeholder-class="placeholder" class="form-item-input1" placeholder="请输入学校邮编" value="{{orgCode}}" bindinput="hasOrgCode"></input>
+	</view>
+
+	<view class="now">
+		<checkbox value="{{isChecked}}" checked="{{isChecked == true}}" catchtap="changeSelect">我已阅读并同意</checkbox>
+		<view catchtap="goWebview">《用户服务协议》</view>
+	</view>
+
+	<view class="send eor {{isIphoneX==true?'address_btn_phx':''}}" wx:if="{{!isChecked}}">提交</view>
+	<view class="send {{isIphoneX==true?'address_btn_phx':''}}" wx:else catchtap="send">提交</view>
+</view>
+
+<!-- 提交成功弹窗 -->
+<view class="mask" catchtouchmove="true" wx:if="{{IsSuccess}}"></view>
+<view class="success-dialog" wx:if="{{IsSuccess}}">
+	<view class="success-radios"></view>
+	<image src="../../image/successIcon.png" class="successIcon"></image>
+	<view class="successTitle">我们已收到您的申请</view>
+	<view class="successTxt">小科鼠工作人员将在3个工作日内与您联系请保持手机畅通！</view>
+	<view class="successBtn" catchtap="closeDialog">知道了</view>
+</view>

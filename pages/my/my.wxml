@@ -1,0 +1,156 @@
+<view class="content">
+
+	<!-- 头部内容区已登录 -->
+	<view class="mTop {{mark !== 3?'mTop2':''}}" wx:if="{{userInfo}}">
+		<view class="mTop-content">
+			<image class="avator {{mark !==3 ?'avator2':''}}" src="{{userInfo.avatar}}"></image>
+			<view class="mTop-content-right">
+				<view class="mTop-user">
+					<view class="mTop-content-name">{{userInfo.nickname}}</view>
+					<view class="mTop-mark" wx:if="{{mark == 3}}">普通用户</view>
+				</view>
+			</view>
+		</view>
+		<view class="ul">
+			<view class="li" catchtap="goWrap">
+				<view>{{userInfo.balance}}</view>
+				<view>我的佣金</view>
+			</view>
+			<view class="li">
+				<view>{{userInfo.riceprice>0?userInfo.riceprice:0}}</view>
+				<view>我的米粒</view>
+			</view>
+			<view class="li">
+				<view>{{userInfo.integral}}</view>
+				<view>我的积分</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 未登录 -->
+	<view class="mTop {{mark !== 3?'mTop2':''}}" wx:else>
+		<view class="mTop-content" catchtap="IsLogin">
+			<image class="avator {{mark !==3 ?'avator2':''}}" src="../../image/avator.png"></image>
+			<view class="mTop-content-right">
+				<view class="mTop-user">
+					<view class="mTop-content-name">登录/注册</view>
+				</view>
+				<view class="tag">
+					<!-- <view class="tag-item {{mark !== 3 ?'tag-item2':''}}">个人：LV0</view> -->
+				</view>
+			</view>
+		</view>
+		<view class="ul">
+			<view class="li">
+				<view>0</view>
+				<view>我的佣金</view>
+			</view>
+			<view class="li">
+				<view>0</view>
+				<view>我的米粒</view>
+			</view>
+			<view class="li">
+				<view>0</view>
+				<view>我的积分</view>
+			</view>
+		</view>
+	</view>
+
+	<!-- 轮播通告 -->
+	<view class="swiper">
+		<image src="../../image/bell.png" class="bell"></image>
+		<swiper autoplay="true" current="{{current}}" interval="{{interval}}" bindanimationfinish="swiperChange" class="swipers" circular="true">
+			<swiper-item catchtouchmove="stopTouchMove" class="swipers-item" wx:for="{{swiper}}" wx:key="index">
+				<view class="wrap">{{item}}</view>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<!-- 我的菜单栏 -->
+	<view class="list">
+		<view class="item" bindtap="goMyOrder">
+			<view class="item-left">
+				<image src="../../image/m1.png" class="img1"></image>
+				<view class="item-title">我的订单</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1"></view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" bindtap="goAddress">
+			<view class="item-left">
+				<image src="../../image/m8.png" class="img1"></image>
+				<view class="item-title">我的地址</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1"></view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" wx:if="{{protocol.ischeck !== 4 && protocol.audittype !== 2}}" catchtap="goProtocol">
+			<view class="item-left">
+				<image src="../../image/m2.png" class="img1"></image>
+				<view class="item-title">合伙人申请</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1 item-txt2">超高佣金 躺着赚钱</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" wx:else data-roleid="{{protocol.roleid}}" catchtap="toWebview">
+			<view class="item-left">
+				<image src="../../image/m2.png" class="img1"></image>
+				<view class="item-title">合伙人等级</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1 item-txt2" wx:if="{{protocol.roleid == 4}}">初级</view>
+				<view class="item-txt1 item-txt2" wx:if="{{protocol.roleid == 5}}">中级</view>
+				<view class="item-txt1 item-txt2" wx:if="{{protocol.roleid == 6}}">高级</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" bindtap="goShare">
+			<view class="item-left">
+				<image src="../../image/m3.png" class="img1"></image>
+				<view class="item-title">邀请好友注册</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1 item-txt2">邀请1人 立得20米粒</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" bindtap="goUser">
+			<view class="item-left">
+				<image src="../../image/m4.png" class="img1"></image>
+				<view class="item-title">我的资料</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1">上传证件 实名认证</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item" data-mark="{{mark}}" bindtap="goMyGroup">
+			<view class="item-left">
+				<image src="../../image/m5.png" class="img1"></image>
+				<view class="item-title">我的圈子</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1">每日收益 一目了然</view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+		<view class="item">
+			<button open-type="contact" class="btn">1</button>
+			<view class="item-left">
+				<image src="../../image/m6.png" class="img1"></image>
+				<view class="item-title">联系客服</view>
+			</view>
+			<view class="item-right">
+				<view class="item-txt1">定制需求 售后资讯 </view>
+				<image src="../../image/right.png" class="right"></image>
+			</view>
+		</view>
+	</view>
+
+</view>

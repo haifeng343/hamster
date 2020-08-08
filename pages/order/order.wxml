@@ -1,0 +1,68 @@
+<view>
+	<view class="nav">
+		<view class="nav-item {{item.id == active?'active':''}}" data-id="{{item.id}}" wx:for="{{nav}}" wx:key="index" bindtap="setIndex">{{item.name}}</view>
+	</view>
+</view>
+<view wx:if="{{list.length>0}}" class="scroll1">
+	<view class="item" wx:for="{{list}}" wx:key="index">
+		<view class="item-top" catchtap="toDetail" data-id="{{item.orderid}}">
+			<view class="item-top-left">
+				<view class="item-top-title">订单编号：</view>
+				<view class="item-top-code wrap">{{item.ordercode}}</view>
+			</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 1}}">待支付</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 2 || item.status == 3}}">未受理</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 4}}">已受理</view>
+			<!-- <view class="orderStatus wrap" wx:if="{{item.status == 5}}">已发货</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 6}}">已收货</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 7}}">已评价</view> -->
+			<view class="orderStatus wrap" wx:if="{{item.status == 8}}">已取消</view>
+			<view class="orderStatus wrap" wx:if="{{item.status == 9}}">退款中</view>
+			<!-- <view class="orderStatus wrap" wx:if="{{item.status == 10}}">客服退款</view> -->
+			<view class="orderStatus wrap" wx:if="{{item.status == 11}}">退款成功</view>
+		</view>
+		<view class="item-content" catchtap="toDetail" data-id="{{item.orderid}}" wx:for="{{item.list}}" wx:for-item="item1" wx:key="index1">
+			<image class="item-logo" src="{{baseUrl+item1.pic}}"></image>
+			<view class="item-content-right">
+				<view class="item-content-title wrap">{{item1.planname}}</view>
+				<view>
+					<view class="wrap num">X{{item1.num}}</view>
+					<view class="wrap money">¥{{item1.price}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="item-status">
+			<!-- <view class="item-status-txt1" wx:if="{{item.status == 3}}">已支付未受理</view>
+			<view class="item-status-txt1" wx:elif="{{item.status == 4}}">已支付已受理</view> -->
+			<view></view>
+			<view class="item-status-count">共{{item.count}}件商品 合计：<text class="price">¥{{item.payAllMoney}}</text></view>
+		</view>
+		<view class="fare">含运费：¥{{item.trans_money}}</view>
+		<view class="fare" wx:if="{{item.riceprice}}">使用米粒：{{item.riceprice}}</view>
+		<view class="footer">
+			<!-- <view class="item-status-count flex-end">合计：<text class="price">¥{{item.payAllMoney}}</text></view> -->
+			<view class="flex-end mt34">
+				<button open-type="contact" class="conta btn">联系客服</button>
+				<view class="btn" wx:if="{{item.status == 1}}" data-item="{{item}}" catchtap="payCancel">取消订单</view>
+				<view class="btn" wx:if="{{item.status == 1}}" data-item="{{item}}" catchtap="pay">立即支付</view>
+				<view class="btn" wx:if="{{item.status == 3}}" data-item="{{item}}" catchtap="refund">退款申请</view>
+				<!-- <view class="btn" wx:if="{{item.status == 6}}" data-item="{{item}}">评价</view> -->
+				<!-- <view class="btn" wx:if="{{item.status == 8}}" data-item="{{item}}" catchtap="pay">重新支付</view> -->
+				<view class="btn" wx:if="{{item.status == 8 || item.status == 11}}" data-item="{{item}}" catchtap="deleted">删除订单</view>
+			</view>
+		</view>
+
+	</view>
+</view>
+<view class="no-show" wx:else>
+	<image src="../../image/noOrder.png" class="noImg1"></image>
+	<view>您还没有任何订单</view>
+</view>
+<view class="mb80" wx:if="{{isIphoneX == true}}"></view>
+<!-- <view class="delivery">
+			<view class="delivery-title">派送中</view>
+			<view class="delivery-content">
+				【华东众包站】您的订单正在配送途中（配送员：贾荣花，电话：<text class="mobile">18817353333</text>）请您准备签收，感谢您的耐心等待
+			</view>
+			<view class="delivery-time">2019-03-05 11:35:31</view>
+		</view> -->

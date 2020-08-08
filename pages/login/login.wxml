@@ -1,0 +1,18 @@
+<view class="login">
+  <view class="btnTxt">请登录绑定</view>
+  <view class="input1">
+    <input type="number" placeholder-class="placeholder" value="{{mobile}}" bindinput="hasMobile" maxlength="11" placeholder="输入手机号/账号"></input>
+  </view>
+  <view class="input1 input2">
+    <input type="number" placeholder-class="placeholder" value="{{code}}" bindinput="hasCode" maxlength="6" placeholder="输入验证码"></input>
+    <view class="code {{IsClick==true?'':'gray'}}" wx:if="{{IsDisAbled == true}}" catchtap="hasGetCode">{{codeTxt}}</view>
+    <view class="code gray" wx:else>{{codeTxt}}</view>
+  </view>
+
+  <view class="now">
+      <checkbox value="{{isChecked}}" checked="{{isChecked == true}}" catchtap="changeSelect">我已阅读并同意</checkbox>
+    <view catchtap="goWebview">《用户服务协议》</view>
+  </view>
+
+  <view class="address_btn" bindtap="login">登录</view>
+</view>

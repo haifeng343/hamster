@@ -1,0 +1,69 @@
+page {
+  background: #fff;
+}
+
+.content {
+  width: 89.33%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  color: #000;
+}
+
+.log-title {
+  font-size: 32rpx;
+  margin: 40rpx 0 34rpx 0;
+}
+.log-txt{
+  font-size: 28rpx;
+  line-height: 42rpx;
+}
+.log-title:last-child{
+  margin: 74rpx 0 40rpx 0;
+}
+.list{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  width: 100%;
+  height: 100rpx;
+  padding: 36rpx 0;
+  border-top: 2rpx solid #f2f2f2;
+  border-bottom: 2rpx solid #f2f2f2;
+  margin-bottom: -2rpx;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+
+}
+.item-top{
+  display: flex;
+  justify-content: space-between;
+  font-size: 30rpx;
+  color: #000;
+}
+.number1{
+  color: #E6A23C;
+}
+.number2{
+  color: #BCBCBC;
+}
+.time{
+  color: #BCBCBC;
+  font-size: 24rpx;
+}
+
+
+
+
+
+
+
+
+
+
+

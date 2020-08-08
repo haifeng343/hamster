@@ -1,0 +1,11 @@
+
+<view class="container1">
+  <image src="../../image/payeor.png" class="payeor"></image>
+  <view class="txt1">支付遇到问题</view>
+  <view class="txt2">请前往订单页重新支付</view>
+  <view class="look" bindtap="look">查看订单</view>
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>
+</view>

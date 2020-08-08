@@ -1,0 +1,75 @@
+<!-- 点击跳转搜索页面 -->
+<view class="searchTop">
+	<input bindtap="toSearch" type="text" placeholder-class="placeClass" disabled="true" placeholder="检索科研服务 定制咨询客服" class="input1"></input>
+</view>
+
+<!-- nav菜单切换 -->
+<!-- <view class="hideScroll">
+	<scroll-view class="nav" scroll-x="true" scroll-into-view="{{toView}}" scroll-left="{{scrollLeft}}">
+		<view class="navItem {{showId == item.id ? 'active' : ''}}" id="nav{{item.id}}" wx:for="{{navList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" catchtap="setItem">
+			{{item.name}}
+		</view>
+	</scroll-view>
+</view> -->
+
+<!-- 产品列表 -->
+<view class="list">
+	<!-- 左侧导航 -->
+	<view class="nav">
+		<view class="navItem {{showId == item.id ? 'active' : ''}}" id="nav{{item.id}}" wx:for="{{navList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" catchtap="setItem">
+			{{item.name}}
+		</view>
+	</view>
+	<!-- 商品菜单 -->
+	<view class="listitem" wx:for="{{list}}" wx:key="index">
+		<image class="img1" lazy-load="true" src="{{baseUrl+item.pic}}" data-id="{{item.planid}}" data-number="{{item.number}}" data-name="{{item.planname}}" catchtap="toDetail"></image>
+		<view class="item-content">
+			<view class="item-txt" data-id="{{item.planid}}" data-number="{{item.number}}" data-name="{{item.planname}}" catchtap="toDetail">
+				<view class="item-title wrap">{{item.planname}}</view>
+				<view class="wrap item-txt1">{{item.remarkone}}</view>
+				<view class="wrap" wx:if="{{item.remarktwo !== '0'}}">{{item.remarktwo}}</view>
+			</view>
+			<view class="item-footer">
+				<view class="wrap item-price" data-id="{{item.planid}}" data-number="{{item.number}}" data-name="{{item.planname}}" catchtap="toDetail">
+					<text class="money">¥{{item.price}}</text><text class="old_price">￥{{item.original_price}}</text>
+				</view>
+				<!-- <image src="../../image/addCar.png" data-id="{{item.planid}}" catchtap="addCardCount" class="car" wx:if="{{item.flag == true}}"></image>
+				<image src="../../image/addCar.png" class="car car1" wx:else></image> -->
+				<view class="main-item-computed">
+					<image src="../../image/remove.png" catchtap="computedTo" data-showid="{{showId}}" wx:if="{{item.number>0}}" data-num="1" data-id="{{item.planid}}" class="main-item-img1"></image>
+					<input type="number" value="{{item.number}}" wx:if="{{item.number>0}}" data-showid="{{showId}}" data-id="{{item.planid}}" bindinput="hasInput" maxlength="3" class="main-item-input"></input>
+					<image src="../../image/add.png" data-id="{{item.planid}}" data-num="2" data-showid="{{showId}}" catchtap="computedTo" class="main-item-img1"></image>
+				</view>
+			</view>
+		</view>
+	</view>
+
+</view>
+<view class="lastChild"></view>
+
+<!-- 底部购物车悬浮菜单栏 -->
+<view class="mask" wx:if="{{showDialog && allCount}}" catchtap="dialogToggle" catchtouchmove="true"></view>
+<view class="carList" wx:if="{{showCarList}}">
+	<scroll-view scroll-y="true" class="carList-content" wx:if="{{showDialog}}">
+		<view class="carList-item" wx:for="{{carList}}" wx:key="index" wx:if="{{item.number}}">
+			<view class="carList-item-txt wrap">{{item.planname}}</view>
+			<view class="money1 wrap">¥{{item.price}}</view>
+			<view class="carList-computed">
+				<image src="../../image/remove.png" data-id="{{item.planid}}" data-num="1" catchtap="computedTo" class="remove"></image>
+				<input type="number" value="{{item.number}}" data-id="{{item.planid}}" disabled="true" bindinput="hasInput" maxlength="3" class="carList-input"></input>
+				<image src="../../image/add.png" data-id="{{item.planid}}" data-num="2" catchtap="computedTo" class="add"></image>
+			</view>
+		</view>
+	</scroll-view>
+	<view class="carList-footer shadow" wx:if="{{allCount}}">
+		<image src="../../image/carImg.png" class="carImg" catchtap="dialogToggle"></image>
+		<view class="count" wx:if="{{allCount>0}}">{{allCount>99?'99+':allCount}}</view>
+		<view class="carList-footer-right" catchtap="dialogToggle">
+			<view class="carList-money">
+				<view class="wrap">总价：¥{{allMoney}}</view>
+				<view class="carList-txt1 wrap">节省：¥{{allPrice}}</view>
+			</view>
+			<view class="carList-btn" catchtap="goCar">支付</view>
+		</view>
+	</view>
+</view>

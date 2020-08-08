@@ -1,0 +1,43 @@
+<view class="form">
+	<view class="form-item">
+		<view class="form-item-label">填写收货人</view>
+		<input class="form-item-input" type="text" value="{{name}}" placeholder="" bindinput="hasName"></input>
+	</view>
+	<view class="form-item">
+		<view class="form-item-label">联系方式</view>
+		<input class="form-item-input" type="number" maxlength="11" value="{{mobile}}" placeholder="" bindinput="hasMobile"></input>
+	</view>
+	<view class="form-item">
+		<view class="form-item-label">邮箱地址</view>
+		<input class="form-item-input" type="text" value="{{email}}" placeholder="" bindinput="hasEmail"></input>
+	</view>
+	<picker mode="region" bindcancel="bindNoChange" class="form-item" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+		<view class="picker picker1">
+			<view class="form-item-label form-item-label1">{{IsShow==true?'已选择':'地址'}}</view>
+			<view wx:if="{{IsShow}}" class="letterSpace wrap">
+				<view class="v1">{{region[0]}}</view>
+				<view class="v1">{{region[1]}}</view>
+				<view class="v1">{{region[2]}}</view>
+			</view>
+			<view wx:else class="hui letterSpace">
+				<view class="v1">省</view>
+				<view class="v1">市</view>
+				<view class="v1">区</view>
+			</view>
+		</view>
+	</picker>
+	<view class="form-item">
+		<view class="form-item-label">详细地址</view>
+		<input value="{{detailAddress}}" placeholder-class="c1" placeholder="填写详细街道地址" bindinput="hasDetailAddress"></input>
+	</view>
+</view>
+	<checkbox-group bindchange="selectChange" class="middle">
+		<checkbox value="{{ischeck}}" color="#fff" class="item-address-radio2" checked="{{ischeck == true}}">
+			<view class="mox {{ischeck == true?'moxuan':''}}">设为默认</view>
+		</checkbox>
+	</checkbox-group>
+
+<view class="form-footer {{isIphoneX==true?'address_btn_phx':''}}">
+	<view class="address_btn1" bindtap="save">保存并使用</view>
+	<view class="address_btn1 address_btn2" bindtap="cancel">取消</view>
+</view>

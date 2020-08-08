@@ -1,0 +1,34 @@
+  <image src="../../image/shareBg.jpg" class="share"></image>
+  <image src="../../image/share3.png" class="shareImgs"></image>
+  <image src="../../image/share4.png" class="shareImgs shareImgs1"></image>
+  <image src="../../image/share5.png" class="shareImgs shareImgs2"></image>
+
+<!-- <view class="myShare">
+  <image class="shareImg" catchtap="updated" src="http://img1.imgtn.bdimg.com/it/u=3340877733,3221894234&fm=26&gp=0.jpg"></image>
+  <view class="share-txt4">您每推荐一位好友注册，您将获得20米粒。</view>
+  <view class="share-content">
+    <button open-type="share" class="share-item">
+      <image src="../../image/share1.png" class="shareIcon"></image>
+      <view>微信</view>
+    </button>
+    <view catchtap="showDialog" class="share-item">
+      <image src="../../image/share2.png" class="shareIcon"></image>
+      <view>朋友圈</view>
+    </view>
+  </view>
+</view> -->
+
+<view class="shareFooter {{isIphoneX==true?'b68':''}}">
+  <button open-type="share" class="share-item">
+    <image src="../../image/share1.jpg" class="share1"></image>
+  </button>
+  <image catchtap="showDialog" src="../../image/share2.png" class="share1"></image>
+</view>
+
+<view style="width:{{windowWidth}}rpx;height:{{windowHeight}}rpx" wx:if="{{isDialog}}">
+  <view class="mask"></view>
+  <image src="../../image/clear.png" catchtap="closeDialog" class="clear"></image>
+  <image src="{{baseImgUrl}}" class="img1"></image>
+  <view catchtap="create" class="save">保存到本地</view>
+</view>
+

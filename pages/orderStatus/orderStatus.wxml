@@ -1,0 +1,44 @@
+<view class="container">
+	<image src="../../image/success.png" class="img1" wx:if="{{IsStatus==1}}"></image>
+	<image src="../../image/wraning.png" class="img1" wx:if="{{IsStatus==2 && !status}}"></image>
+	<image src="../../image/fail.png" class="img1" wx:if="{{IsStatus==3 && !status}}"></image>
+	<image src="../../image/wraning.png" class="img1" wx:if="{{IsStatus==3 && status == 3}}"></image>
+	<image src="../../image/fail.png" class="img1" wx:if="{{IsStatus==3 && status == 4}}"></image>
+	<image src="../../image/success.png" class="img1" wx:if="{{IsStatus==3 && status == 5}}"></image>
+	<view class="center" wx:if="{{IsStatus==1 && !status}}">
+		<view>支付成功</view>
+		<view>订单处理中</view>
+	</view>
+	<view class="center" wx:if="{{IsStatus==2 && !status}}">
+		<view>已选择XX支付</view>
+		<view>请等待小科鼠客服联系您</view>
+	</view>
+	<view class="center" wx:if="{{IsStatus==3 && !status}}">
+		<view>支付遇到问题</view>
+		<view>请前往订单页重新支付</view>
+	</view>
+	<view class="center" wx:if="{{IsStatus==3 && status == 3}}">
+		<view>审核中</view>
+		<view>请等待小科鼠联系您</view>
+	</view>
+	<view class="center" wx:if="{{IsStatus==3 && status == 4}}">
+		<view>审核失败</view>
+		<view>如有疑问请联系客服</view>
+		<view class="txt1">失败原因：{{txt}}</view>
+	</view>
+	<view class="center" wx:if="{{IsStatus==3 && status == 5}}">
+		<view>审核成功</view>
+		<view>如有疑问请联系客服</view>
+	</view>
+
+	<view class="btn" wx:if="{{!status}}">查看订单</view>
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>
+	<view class="bottom" wx:if="{{IsStatus == 1 && !status}}">
+		<view class="number">6400<text class="txt">积分</text></view>
+		<image src="../../image/gitftList.png" class="giftImg" bindtap="goGift"></image>
+		<image src="../../image/orderbg.png" class="orderBg"></image>
+	</view>
+</view>

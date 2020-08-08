@@ -1,0 +1,93 @@
+<block wx:if="{{userInfo}}">
+
+	<!-- 默认购物包 -->
+	<radio-group bindchange="bagSelect">
+		<view wx:for="{{carList}}" wx:key="index" class="content">
+			<view class="toggle">
+				<radio value="{{item.shopbagid}}" class="checked" checked="{{item.isCheck == true}}">
+					<view class="toggle-title wrap">{{item.bagname}}</view>
+				</radio>
+				<image src="../../image/toggle.png" data-id="{{item.shopbagid}}" catchtap="toggle" class="toggle-img {{item.toggle == true?'toggle-img1':''}}"></image>
+				<image src="../../image/more.png" data-bagid="{{item.shopbagid}}" data-bagname="{{item.bagname}}" catchtap="setStatus" class="more" wx:if="{{item.bagname !== '默认购物包' && item.isCheck !== true}}"></image>
+			</view>
+			<!-- 底下的子元素checkgroup -->
+			<checkbox-group class="container1" data-bagid="{{item.shopbagid}}" data-index="{{index}}" bindchange="selectChange" wx:if="{{item.toggle}}">
+				<view class="main">
+					<view class="main_item" wx:for="{{item.list}}" wx:for-item="item1" wx:key="index1">
+						<movable-area>
+							<movable-view damping="80" out-of-bounds="true" data-id="{{item.planid}}" direction="horizontal" x="{{item.x}}" inertia="true" bindchange="handleMovableChange" capture-bind:touchstart="handleTouchestart" capture-bind:touchend="handleTouchend">
+								<view class="main_item_content ">
+									<checkbox class="main-item-left" data-planid="{{item1.planid}}" checked="{{item1.isCheck==true}}" value="{{item1.planid}}"></checkbox>
+									<view class="main-item-right">
+										<image src="{{baseUrl+item1.pic}}" data-id="{{item1.planid}}" data-name="{{item1.planname}}" catchtap="toDetail" class="main-item-img"></image>
+										<view class="main-item-right-content">
+											<view class="columnWrap" data-id="{{item1.planid}}" data-name="{{item1.planname}}" catchtap="toDetail">{{item1.planname}}</view>
+											<view class="main-item-bottom">
+												<view class="main-item-money">¥{{item1.price}}</view>
+												<view class="main-item-computed">
+													<image src="../../image/remove.png" class="main-item-img1" data-shopbagid="{{item.shopbagid}}" data-shopid="{{item1.shopid}}" data-id="{{item1.planid}}" catchtap="removed"></image>
+													<input type="number" maxlength="3" class="main-item-input" data-bagid="{{item.shopbagid}}" disabled="true" value="{{item1.num}}" bindinput="hasNumber" data-id="{{item1.planid}}"></input>
+													<image src="../../image/add.png" class="main-item-img1" data-shopid="{{item1.shopid}}" data-id="{{item1.planid}}" catchtap="add"></image>
+												</view>
+											</view>
+										</view>
+									</view>
+								</view>
+							</movable-view>
+						</movable-area>
+						<view class="delete_btn" data-bagid="{{item.shopbagid}}" data-shopid="{{item1.shopid}}" data-planid="{{item1.planid}}" catchtap="deletedItem">删除</view>
+					</view>
+				</view>
+			</checkbox-group>
+		</view>
+	</radio-group>
+
+
+
+	<!-- 默认购物包 -->
+	<view class="content mt20" wx:if="{{carList.length < 10}}" catchtap="showBagDialog">
+		<view class="toggle">
+			<image src="../../image/add1.png" class="add1"></image>
+			<view class="toggle-title wrap">添加购物包</view>
+		</view>
+	</view>
+
+	<!-- 购物包弹窗 -->
+	<view class="mask" catchtouchmove="true" wx:if="{{bagDialog}}"></view>
+	<view class="dialog" wx:if="{{bagDialog}}">
+		<view class="dialog-title">{{bagTitle}}</view>
+		<view class="dialog-content">
+			<input type="text" placeholder="请输入购物包名" cursor-spacing="120" class="inpputName" focus hold-keyboard="true" maxlength="16" value="{{bagName}}" bindinput="hasBagName"></input>
+			<image src="../../image/clear.png" wx:if="{{bagName}}" catchtap="cleard" class="dialog-clear"></image>
+			<view class="mChange" wx:if="{{status == 1}}">
+				<view class="tmChangeTxt">是否默认选中</view>
+				<switch value="{{IsSelect}}" checked="{{IsSelect == true}}" class="switch" color="#4A90E2" bindchange="changeSelect"></switch>
+			</view>
+		</view>
+		<view class="dialog-foot">
+			<view class="dialog-btn" catchtap="cancelDialog">取消</view>
+			<view class="dialog-btn" catchtap="confimDialog">确定</view>
+		</view>
+	</view>
+
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>
+<view class="lastChild"></view>
+	<view class="footer-fixed shadow">
+		<view class="footer-fixed-left">
+			<!-- <checkbox value="{{}}" checked="{{allChecked==true}}" class="allcheck" catchtap="allSelect">全选</checkbox> -->
+			<view class="footer-fiexd-content">
+				<view class="footer-fixed-txt1 wrap">合计：<text class="p1">¥{{payMoney}}</text><text class="footer-fixed-small" wx:if="{{delMoney}}">（运费：¥{{delMoney}}）</text></view>
+				<view class="footer-fixed-txt2 wrap">节省：¥{{save}}</view>
+			</view>
+		</view>
+		<view class="footer-fixed-btn" catchtap="goPay">去支付</view>
+	</view>
+</block>
+
+<view class="no-show" wx:else>
+	<image src="../../image/noOrder.png" class="noImg1"></image>
+	<view class="no-txt" catchtap="toLogin">去登录</view>
+</view>

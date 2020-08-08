@@ -1,0 +1,69 @@
+page{
+  background: #fff;
+}
+.list{
+  width: 89.33%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 0 auto;
+}
+.item{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.item-time{
+  width: 100%;
+  height: 102rpx;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 30rpx;
+  color: #000;
+  font-weight: 500;
+  border-bottom: 2rpx solid #f2f2f2;
+}
+.money{
+  color: #FB5C35;
+}
+.item-content{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  margin: 32rpx 0 0;
+}
+.flex-between{
+  width: 100%;
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 22rpx;
+  font-size: 28rpx;
+  font-weight: 400;
+  color: #333;
+}
+.lastTxt{
+  font-size: 26rpx;
+  color: #BCBCBC;
+  text-align: center;
+  margin-top: 32rpx;
+}
+
+
+
+
+
+
+
+
+
+
+
+

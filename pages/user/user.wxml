@@ -1,0 +1,24 @@
+<view class="list">
+	<view class="item" data-num="{{1}}" bindtap="goMyOrder">
+		<view class="item-left">
+			<view class="item-title">身份证录入</view>
+		</view>
+		<view class="item-right">
+			<view class="item-txt3" wx:if="{{user.realname}}">去修改</view>
+			<view class="item-txt3" wx:else>去识别</view>
+			<image src="../../image/isGo.png" wx:if="{{user.realname}}" class="isGo"></image>
+			<image src="../../image/right.png" wx:else class="right"></image>
+		</view>
+	</view>
+	<view class="item" data-num="{{2}}" wx:if="{{user}}" bindtap="goMyOrder">
+		<view class="item-left">
+			<view class="item-title">银行卡录入</view>
+		</view>
+		<view class="item-right">
+			<view class="item-txt3" wx:if="{{user.bankno}}">去修改</view>
+			<view class="item-txt3" wx:else>去识别</view>
+			<image src="../../image/isGo.png" wx:if="{{user.bankno}}" class="isGo"></image>
+			<image src="../../image/right.png" wx:else class="right"></image>
+		</view>
+	</view>
+</view>

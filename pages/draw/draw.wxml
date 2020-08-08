@@ -1,0 +1,13 @@
+<view class="txt1">明细</view>
+<view class="container1">
+  <image src="../../image/draw.png" class="draw"></image>
+  <view class="money">￥<text class="number">{{userInfo?userInfo.balance:0}}</text></view>
+  <view class="drawtxt">（当前我的佣金）</view>
+  <view class="txt2">提现到指定账户，3个工作日内到账，每天仅限体现1次，如有疑问请联系客服</view>
+  <view class="drawOrder">
+    <view class="txt3">提现金额</view>
+    <input class="drawinput" placeholder-class="place" type="digit" value="{{money}}" bindinput="hasMoney" placeholder="请输入最小为0.3元的提现金额"></input>
+    <image src="../../image/clear.png" wx:if="{{money}}" class="clear" catchtap="clearInput"></image>
+  </view>
+  <view class="btn" catchtap="draw">提现</view>
+</view>

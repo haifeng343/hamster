@@ -1,0 +1,22 @@
+.list{
+  width: 90%!important;
+  margin: 0 auto!important;
+}
+.item-title{
+  margin-left: 0!important;
+}
+.item-txt3{
+  color: #4A90E2;
+}
+.right{
+  margin-left: 20rpx!important;
+}
+.isGo{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 20rpx;
+}
+.item{
+  padding: 0!important;
+}
+@import '/pages/my/my.wxss'

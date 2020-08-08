@@ -1,0 +1,49 @@
+<view class="content" wx:if="{{num == 1}}">
+	<view class="log-title">米粒获取规则：</view>
+	<view class="log-txt">
+		<view>1.活动期间邀请好友注册，成功邀请一人可获20米粒奖励。</view>
+		<view>2. 邀请新用户下单获取订单商品总额（不含运费）5%米粒返还。</view>
+		<view>3.米粒永久有效。</view>
+	</view>
+  <view class="log-title">米粒支取记录</view>
+  <view class="list">
+    <view class="item">
+      <view class="item-top">
+        <view>新客首单消费返还</view>
+        <view class="number1">+500</view>
+      </view>
+      <view class="time">2019-08-08</view>
+    </view>
+     <view class="item">
+      <view class="item-top">
+        <view>消费抵现</view>
+        <view class="number2">-300</view>
+      </view>
+      <view class="time">2019-08-08</view>
+    </view>
+  </view>
+</view>
+<view class="content" wx:if="{{num == 2}}">
+	<view class="log-title">积分获取规则：</view>
+	<view class="log-txt">
+		<view>1.普通用户下单并收货后，获取订单商品总额（不含运费）相等的积分。</view>
+		<view>2. 积分永久有效。</view>
+	</view>
+  <view class="log-title">积分支取记录</view>
+  <view class="list">
+    <view class="item">
+      <view class="item-top">
+        <view>订单消费返还</view>
+        <view class="number1">+5000</view>
+      </view>
+      <view class="time">2019-08-08</view>
+    </view>
+     <view class="item">
+      <view class="item-top">
+        <view>礼品兑换</view>
+        <view class="number2">-800</view>
+      </view>
+      <view class="time">2019-08-08</view>
+    </view>
+  </view>
+</view>

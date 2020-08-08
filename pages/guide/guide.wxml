@@ -1,0 +1,15 @@
+<!-- <view class="list">
+  <view class="item" wx:for="{{list}}" wx:key="index">
+  <video class="video" src="{{item.src}}" object-fit="fill" controls="{{true}}" autoplay="{{autoplay}}" poster="{{item.img}}" enable-progress-gesture="{{true}}"></video>
+  </view>
+</view>
+<button bindtap="gogogo">go</button> -->
+<!-- <view class="video-item">
+  <view class="lesson"></view>
+  <view class="title"></view>
+</view> -->
+
+<view class="nine">
+  <view class="item" wx:for="{{nineList}}" :key="index">{{item}}</view>
+</view>
+<button open-type="getPhoneNumber" bindgetphonenumber="getUserPhone">获取用户手机号</button>

@@ -1,0 +1,17 @@
+page{
+  background: #fff;
+}
+.content{
+  width: 84.8%;
+  height: auto;
+  margin: 30rpx auto 80rpx;
+  font-size: #333;
+  font-size: 30rpx;
+  line-height: 40rpx;
+}
+.p1{
+  text-indent: 2em;
+}
+.bold{
+  font-weight: 500;
+}

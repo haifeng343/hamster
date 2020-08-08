@@ -1,0 +1,25 @@
+	<view class="indexTop">
+		<!-- 搜索点击跳转 -->
+		<input type="" disabled="true" placeholder="检索科研服务 定制咨询客服" placeholder-class="inputPlaceholder" class="input1" bindtap="toSearch"></input>
+		<swiper class="swiperContainer" indicator-dots="true" autoplay="{{true}}" indicator-dots="{{indicatorDots}}">
+			<swiper-item>
+				<image class="img1" src="../../image/banner.png"></image>
+			</swiper-item>
+			<swiper-item>
+				<image class="img1" src="../../image/banner.png"></image>
+			</swiper-item>
+		</swiper>
+	</view>
+
+	<!-- 菜单栏 -->
+	<view class="ul">
+		<view class="li {{showId==item.id?'active':''}}" wx:for="{{navList}}" wx:key="index" data-id="{{item.id}}" catchtap="goList" catchlongtap="addClass">
+			<image src="{{item.img}}" class="liImg"></image>
+			<view>{{item.name}}</view>
+		</view>
+	</view>
+
+	<!-- 客服 -->
+	<button open-type="contact" class="contactFix">
+		<image src="../../image/contactFix.png" class="contactFixImg"></image>
+	</button>

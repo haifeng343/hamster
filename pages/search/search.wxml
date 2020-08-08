@@ -1,0 +1,75 @@
+<view class="container1">
+
+	<!-- 搜索输入 -->
+	<view class="searchTop1">
+		<input type="text" focus bindconfirm="search" value="{{keyword}}" bindinput="hasKeyWord" class="input1" placeholder="如:QPCR实验"></input>
+		<image src="../../image/clear.png" wx:if="{{keyword}}" class="clear" catchtap="clearInput"></image>
+		<view class="searchTxt" bindtap="search">搜索</view>
+	</view>
+
+	<!-- 头部image -->
+	<image src="../../image/seach1.png" class="banner"></image>
+
+	<!-- 产品列表 -->
+	<view class="list">
+		<view class="listitem" wx:for="{{list}}" wx:key="index" data-id="{{item.planid}}" data-name="{{item.planname}}" catchtap="toDetail">
+			<image class="img1" src="{{baseUrl+item.pic}}"></image>
+			<view class="item-content">
+				<view class="item-txt">
+					<view class="item-title columnWrap">{{item.planname}}</view>
+					<view class="wrap item-txt1">{{item.remarkone}}</view>
+					<view class="wrap">{{item.remarktwo}}</view>
+				</view>
+				<view class="item-footer">
+					<view class="wrap item-price">
+						<text class="money">¥{{item.price}}</text><text class="old_price">￥{{item.original_price}}</text>
+					</view>
+					<image src="../../image/addCar.png" data-id="{{item.planid}}" catchtap="addCardCount" class="car" wx:if="{{item.flag == true}}"></image>
+					<image src="../../image/addCar.png" data-id="{{item.planid}}" class="car" wx:else></image>
+				</view>
+			</view>
+		</view>
+		<view class="end" wx:if="{{isShow && list.length}}">end</view>
+	</view>
+
+	<view class="lastChild"></view>
+</view>
+
+<!-- 底部购物车悬浮菜单栏 -->
+<view class="mask" wx:if="{{showDialog && allCount}}" catchtap="dialogToggle" catchtouchmove="true"></view>
+<view class="carList">
+	<view class="carList-content" wx:if="{{showDialog}}">
+		<view class="carList-item" wx:for="{{carList}}" wx:key="index" wx:if="{{item.number}}">
+      <view class="carList-item-txt wrap">{{item.planname}}</view>
+      <view class="money1 wrap">¥{{item.allMoney}}</view>
+      <view class="carList-computed">
+        <image src="../../image/remove.png" data-id="{{item.planid}}" data-num="1" catchtap="computedCount" class="remove"></image>
+        <input type="number" value="{{item.number}}" data-id="{{item.planid}}" bindinput="hasInput" maxlength="3" class="carList-input"></input>
+        <image src="../../image/add.png" data-id="{{item.planid}}" data-num="2" catchtap="computedCount" class="add"></image>
+      </view>
+		</view>
+	</view>
+	<view class="carList-footer shadow" wx:if="{{allCount}}">
+		<image src="../../image/carImg.png" class="carImg" catchtap="dialogToggle"></image>
+    <view class="count" wx:if="{{allCount>0}}">{{allCount>99?'99+':allCount}}</view>
+		<view class="carList-footer-right">
+			<view class="carList-money">
+				<view class="wrap">总价：¥{{allMoney}}</view>
+				<view class="carList-txt1 wrap">节省：¥{{allPrice}}</view>
+			</view>
+			<view class="carList-btn" catchtap="goCar">支付</view>
+		</view>
+	</view>
+</view>
+
+<!-- 暂无数据 -->
+<view wx:if="{{!list.length}}">
+	<view class="noHasContainer">
+		<view>没有找到你要的产品</view>
+		<view>立刻咨询定制服务</view>
+	</view>
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>
+</view>

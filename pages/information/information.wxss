@@ -1,0 +1,164 @@
+
+
+.navigateTor{
+  width: 100%;
+  height: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: row;
+  margin: 60rpx auto 0;
+}
+.navigateTor .navigateTor-radiu,.navigateTor-radiu1{
+  width: 20rpx;
+  height: 20rpx;
+  border-radius: 100%;
+  background:linear-gradient(180deg,rgba(100,185,255,1) 0%,rgba(78,114,255,1) 100%);
+  position: relative;
+}
+.navigateTor .navigateTor-radiu:nth-child(2n+1)::after{
+  content: '';
+  position: absolute;
+  width:72rpx;
+  height:2rpx;
+  right: 18rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  background:linear-gradient(90deg,rgba(100,185,255,0) 0%,rgba(78,114,255,1) 100%);
+}
+.navigateTor .navigateTor-radiu1::after{
+  content: '';
+  position: absolute;
+  width:72rpx;
+  height:2rpx;
+  left: 18rpx;
+  top: 50%;
+  transform: translateY(-50%);
+  background:linear-gradient(270deg,rgba(100,185,255,0) 0%,rgba(78,114,255,1) 100%);
+}
+.navigateTor-next{
+  width:198rpx;
+  height:58rpx;
+  background:linear-gradient(180deg,rgba(100,185,255,1) 0%,rgba(78,114,255,1) 100%);
+  border-radius:30rpx;
+  color: #fff;
+  font-size: 30rpx;
+  margin: 0 40rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.tipTxt{
+  font-size: 26rpx;
+  color: #F5A623;
+  margin: 20rpx auto;
+}
+.tip{
+  font-size: 24rpx;
+  color: #333;
+  width: 84%;
+  margin-top: 14rpx;
+}
+.ident{
+  margin: 0 auto!important;
+}
+.rultContent{
+  margin: 0 auto!important;
+}
+.lastChild{
+  height: 224rpx;
+  width: 100%;
+  background-color: transparent;
+}
+.footerBtn{
+  width:100%;
+  height:120rpx;
+  background:linear-gradient(90deg,rgba(98,179,255,1) 0%,rgba(79,119,255,1) 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 36rpx;
+  color: #fff;
+  letter-spacing:4rpx;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 1;
+}
+.success-dialog{
+  width:522rpx;
+  height:614rpx;
+  background:rgba(255,255,255,1);
+  border-radius:48rpx;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  z-index: 3;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.success-radios{
+  position: absolute;
+  top: -18rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 36rpx;
+  height: 36rpx;
+  background-color: #FC8700;
+  border-radius: 100%;
+}
+.success-radios::after{
+  content: '';
+  position: absolute;
+  height:812rpx;
+  width: 4rpx;
+  background:#F2F2F2;
+  opacity:0.6;
+  left: 50%;
+  bottom: 36rpx;
+  z-index: 3;
+  transform: translateX(-50%);
+}
+.successIcon{
+  width: 324rpx;
+  height: 214rpx;
+  margin-top: 40rpx;
+}
+.successTitle{
+  font-size: 36rpx;
+  color: #000;
+  margin-top: 22rpx;
+}
+.successTxt{
+  width: 83.15%;
+  height: auto;
+  font-size: 28rpx;
+  color: #7C7C7D;
+  text-align: center;
+  margin-top: 14rpx;
+}
+.successBtn{
+  width:200rpx;
+  height:80rpx;
+  background:linear-gradient(90deg,rgba(98,178,255,1) 0%,rgba(79,119,255,1) 100%);
+  border-radius:40rpx;
+  color: #fff;
+  font-size: 36rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 52rpx;
+}
+
+
+
+
+
+
+
+
+@import '../../pages/spot/spot.wxss'
