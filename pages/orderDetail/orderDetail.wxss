@@ -9,6 +9,9 @@
   justify-content: flex-start;
   margin-bottom: -44rpx;
 }
+.t2{
+  margin-right: 34rpx!important;
+}
 .mTop-top{
   width: 100%;
   height:194rpx;
@@ -25,7 +28,7 @@
 }
 .shop{
   width: 30rpx;
-  height: 32rpx;
+  height: 30rpx;
   margin-right: 20rpx;
 }
 .home{
@@ -42,7 +45,6 @@
   justify-content: center;
 }
 .mtop48{
-  margin-top: -48rpx;
   display: flex;
   flex-direction: row;
   align-items: center;

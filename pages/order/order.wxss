@@ -92,7 +92,6 @@ page{
   justify-content: space-between;
   font-size: 28rpx;
   color: #000;
-  border-bottom: 2rpx solid #EBEBEB;
   padding-bottom: 20rpx;
 }
 .item-top-left{
@@ -114,13 +113,13 @@ page{
   height: 186rpx;
   box-sizing: border-box;
   padding: 20rpx;
+  border-radius: 10rpx;
   display: flex;
   justify-content: flex-start;
   background-color: #F1F1F1;
   margin-bottom: 22rpx;
   flex-direction: row;
   box-sizing: border-box;
-  border-bottom: 2rpx solid #EBEBEB;
 }
 .item-logo{
   width: 140rpx;
@@ -200,14 +199,20 @@ page{
   font-size: 24rpx;
   color: #2A6DFF;
   font-weight:500;
-  border-radius: 4rpx;
+  border-radius: 27rpx;
   margin-left: 20rpx;
 }
 
 .conta{
-  width: 140rpx!important;
+  width: 146rpx!important;
   margin: 0!important;
   padding: 0!important;
+  height: 54rpx;
+  line-height: 54rpx;
+  font-size: 24rpx!important;
+  color: #2A6DFF!important;
+  font-weight: 500!important;
+  border-radius: 27rpx;
   /* margin-right: 20rpx!important; */
 }
 .delivery{

@@ -261,6 +261,7 @@ movable-view {
   position: fixed;
   bottom: 0;
   left: 0;
+  box-shadow:0 2rpx 10rpx 10rpx rgba(240,240,240,0.5);
 }
 
 .allcheck {

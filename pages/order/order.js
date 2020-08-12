@@ -46,7 +46,7 @@ Page({
   onLoad: function (options) {
     if(options){
       this.setData({
-        active:parseFloat(options.status)
+        active:parseFloat(options.status) || 0
       })
     }
     this.init();

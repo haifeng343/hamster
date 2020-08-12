@@ -27,7 +27,7 @@
 			"outputPath": ""
 		},
 		"useIsolateContext": true,
-		"useCompilerModule": true,
+		"useCompilerModule": false,
 		"userConfirmedUseCompilerModuleSwitch": false,
 		"packNpmManually": false,
 		"packNpmRelationList": []
@@ -290,6 +290,28 @@
 					"id": -1,
 					"name": "pages/myGroup/myGroup",
 					"pathName": "pages/myGroup/myGroup",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/myGroup/myGroup",
+					"pathName": "pages/myGroup/myGroup",
+					"query": "num=2",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "pages/drawLog/drawLog",
+					"pathName": "pages/drawLog/drawLog",
+					"query": "num=2",
+					"scene": null
+				},
+				{
+					"id": 34,
+					"name": "pages/orderSDetail/orderSDetail",
+					"pathName": "pages/orderSDetail/orderSDetail",
+					"query": "status=2&id=400",
 					"scene": null
 				}
 			]

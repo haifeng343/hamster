@@ -8,7 +8,7 @@
         <image wx:else src="../../image/shen1.png" class="img1"></image>
         <!-- <view class="upload">{{img1?'更换身份证人像面':'上传身份证人像面'}}</view> -->
       </view>
-      <view class="identTxt">当前身份证正面</view>
+      <view class="identTxt {{ img1?'identTxt1':''}}">当前身份证正面</view>
     </view>
     <view class="identItem">
       <view class="identTop" catchtap="updateUserBefore">
@@ -16,7 +16,7 @@
         <image wx:else src="../../image/shen2.png" class="img1"></image>
         <!-- <view class="upload">{{img2?'更换身份证国徽面':'上传身份证国徽面'}}</view> -->
       </view>
-      <view class="identTxt">当前身份证反面</view>
+      <view class="identTxt {{ img2?'identTxt1':''}}">当前身份证反面</view>
     </view>
   </view>
 
@@ -47,7 +47,7 @@
         <image wx:else class="img1" src="../../image/shen3.png"></image>
         <!-- <view class="upload">{{img3?'更换银行卡':'上传银行卡'}}</view> -->
       </view>
-      <view class="identTxt">当前银行卡</view>
+      <view class="identTxt {{ img3?'identTxt1':''}}">当前银行卡</view>
     </view>
   </view>
 

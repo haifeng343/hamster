@@ -33,7 +33,7 @@
 		<view class="form-item" data-num="1">
 			<view>支付方式</view>
 			<view class="form-item-right">
-				<view class="form-item-right-txt">{{payId==1?'微信支付':payTxt}}</view>
+				<view class="form-item-right-txt t2">{{payId==1?'微信支付':payTxt}}</view>
 				<!-- <image src="../../image/right.png" class="right"></image> -->
 			</view>
 		</view>

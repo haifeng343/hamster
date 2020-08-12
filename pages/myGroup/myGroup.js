@@ -12,7 +12,7 @@ Page({
     mark:wx.getStorageSync('userInfo').roleid,//3普通用户 456合伙人
     userDetail:null,//个人的销量佣金新客户等信息
     tableNav:['当月排行','当季排行','全年排行'],//初级合伙人榜单nav
-    showNav:0,//默认选中榜单
+    showNav:1,//默认选中榜单
     userInfo:null,//用户个人信息
     // 榜单数据
     tableList:[],

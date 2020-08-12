@@ -66,7 +66,6 @@ page{
   color: #fff;
   width: 464rpx;
   height: 60rpx;
-  background: rgba(0,0,0,0.5);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -74,6 +73,9 @@ page{
   position: absolute;
   bottom: 0;
   text-align: center;
+}
+.identTxt1{
+  background: rgba(0,0,0,0.5);
 }
 .rult{
   width: 100%;

@@ -12,6 +12,7 @@ page{
   top: 0;
   left: 0;
 }
+
 .shareImgs{
   width: 70%;
   height: 180rpx;

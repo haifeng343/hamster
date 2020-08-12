@@ -1,0 +1,41 @@
+page{
+  background: #fff;
+}
+.list{
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+}
+.item{
+  box-sizing: border-box;
+  width: 637rpx;
+  height: 122rpx;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 0 auto;
+  border-bottom: 2rpx solid #EBEBEB;
+}
+.between{
+  display: flex;
+  justify-content: space-between;
+}
+.txt1{
+  font-size: 30rpx;
+  font-weight:500;
+  color:rgba(58,58,58,1);
+  line-height:42rpx;
+}
+.txt2{
+  font-size:30rpx;
+  font-weight:500;
+  color:rgba(42,109,255,1);
+  line-height:42rpx;
+}
+.txt3{
+  font-size:24rpx;
+  font-weight:400;
+  color:rgba(200,200,200,1);
+  line-height:33rpx;
+}

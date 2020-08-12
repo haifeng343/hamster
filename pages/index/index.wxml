@@ -5,8 +5,8 @@
 			<swiper-item>
 				<image class="img1" src="../../image/banner.png"></image>
 			</swiper-item>
-			<swiper-item>
-				<image class="img1" src="../../image/banner.png"></image>
+			<swiper-item catchtap="toShare">
+				<image class="img1" src="../../image/banner2.png"></image>
 			</swiper-item>
 		</swiper>
 	</view>

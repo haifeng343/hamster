@@ -1,0 +1,100 @@
+<!-- 订单详情 -->
+<view class="mTop" wx:if="{{status == 2}}">
+	<view class="mTop-top">
+		<view class="mtop48">
+			<image src="../../image/gouwu.png" class="shop"></image>
+			<view class=" wrap" wx:if="{{detail.status == 1}}">待支付</view>
+			<view class=" wrap" wx:if="{{detail.status == 2 || detail.status == 3}}">未受理</view>
+			<view class=" wrap" wx:if="{{detail.status == 4}}">已受理</view>
+			<!-- <view class=" wrap" wx:if="{{detail.status == 5}}">已发货</view>
+			<view class=" wrap" wx:if="{{detail.status == 6}}">已收货</view>
+			<view class=" wrap" wx:if="{{detail.status == 7}}">已评价</view> -->
+			<view class=" wrap" wx:if="{{detail.status == 8}}">已取消</view>
+			<view class=" wrap" wx:if="{{detail.status == 9}}">退款中</view>
+			<!-- <view class=" wrap" wx:if="{{detail.status == 10}}">客服退款</view> -->
+			<view class=" wrap" wx:if="{{detail.status == 11}}">退款成功</view>
+		</view>
+		<view class="home" catchtap="goHome">返回首页</view>
+	</view>
+	<view class="mTop-content" wx:if="{{detail.address_id !== 0}}">
+		<view class="mTop-content-left">
+			<image src="../../image/address1.png" class="adrImg"></image>
+		</view>
+		<view class="mTop-content-right">
+			<view class="wrap">{{detail.username}}<text class="name">{{detail.phone}}</text></view>
+			<view class="txt1 columnWrap">{{detail.provinceName+detail.cityName+detail.areaName+detail.address}}</view>
+		</view>
+	</view>
+</view>
+
+<!-- 订单详情 -->
+
+<scroll-view scroll-y="true" class="scroll" wx:if="{{status == 2}}">
+	<view class="item">
+		<!-- <view class="item-top">
+			<view class="item-top-left">
+				<view class="item-top-title">订单编号：</view>
+				<view class="item-top-code wrap">{{detail.ordercode}}</view>
+			</view>
+		</view> -->
+		<view class="item-content" wx:for="{{detail.list}}" wx:key="index">
+			<image class="item-logo" src="{{baseUrl+item.pic}}"></image>
+			<view class="item-content-right">
+				<view class="item-content-title wrap">{{item.planname}}</view>
+				<view>
+					<view class="wrap num">X{{item.num}}</view>
+					<view class="wrap money">¥{{item.price}}</view>
+				</view>
+			</view>
+		</view>
+		<button open-type="contact" class="contact">
+			<image src="../../image/m6.png" class="contact-img"></image>
+			<view>有疑问，找小科鼠</view>
+		</button>
+
+		<!-- <view class="item-status">
+			<view class="item-status-txt1"></view>
+			<view class="item-status-count">共{{allCount}}件商品 合计：<text class="price">¥{{detail.payMoney}}</text></view>
+		</view>
+		<view class="fare" wx:if="{{detail.riceprice}}">已使用米粒：¥{{detail.riceprice}}</view>
+		<view class="fare">运费：¥{{detail.trans_money}}</view>
+		<view class="footer">
+			<view class="item-status-count flex-end">合计：<text class="price">¥{{detail.payAllMoney}}</text></view>
+			<view class="flex-end mt34">
+				<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="payCancel">取消订单</view>
+				<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="pay1">立即支付</view>
+				<view class="btn" wx:if="{{detail.status == 3}}" data-item="{{detail}}" catchtap="refund">退款申请</view>
+				<view class="btn" wx:if="{{detail.status == 8 || detail.status == 11}}" data-item="{{detail}}" catchtap="deleted">删除订单</view>
+			</view>
+		</view> -->
+	</view>
+</scroll-view>
+<view class="klp">
+	<view class="between">
+		<view class="text1">订单编号：</view>
+		<view class="text2">{{detail.ordercode}}</view>
+	</view>
+	<view class="between">
+		<view class="text1">支付方式：</view>
+		<view class="text2">微信支付</view>
+	</view>
+</view>
+
+<view class="lpl">
+	<view>共计商品：<text class="top1">X{{allCount}}</text></view>
+	<view class="fade"><text class="top1">{{detail.riceprice}}</text>已使用米粒：¥<image src="../../image/ischeck.png" class="ischeck"></image>
+	</view>
+	<view>运费：<text class="top1">￥{{detail.trans_money}}</text></view>
+	<view>商品总额：<text class="top1">￥{{detail.payMoney}}</text></view>
+	<view class="heji">合计：<text class="top2">￥{{detail.payAllMoney}}</text></view>
+</view>
+<view class="lastchild"></view>
+
+
+<!-- 底部操作 -->
+<view class="footer-fixed1 {{isIphoneX==true?'b68':''}}">
+	<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="payCancel">取消订单</view>
+	<view class="btn" wx:if="{{detail.status == 1}}" data-item="{{detail}}" catchtap="pay1">立即支付</view>
+	<view class="btn" wx:if="{{detail.status == 3}}" data-item="{{detail}}" catchtap="refund">退款申请</view>
+	<view class="btn" wx:if="{{detail.status == 8 || detail.status == 11}}" data-item="{{detail}}" catchtap="deleted">删除订单</view>
+</view>

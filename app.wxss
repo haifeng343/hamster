@@ -132,6 +132,10 @@ page {
   padding: 40rpx 0;
   margin-left: 50rpx;
 }
+.between{
+  display: flex;
+  justify-content: space-between;
+}
 
 .item-addres-top {
   display: flex;

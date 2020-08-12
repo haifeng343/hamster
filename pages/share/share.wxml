@@ -17,7 +17,6 @@
     </view>
   </view>
 </view> -->
-
 <view class="shareFooter {{isIphoneX==true?'b68':''}}">
   <button open-type="share" class="share-item">
     <image src="../../image/share1.jpg" class="share1"></image>

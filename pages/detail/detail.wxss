@@ -73,6 +73,7 @@ swiper-item{
   color: #3A3A3A;
   height: 120rpx;
   width: 100%;
+  font-weight: 500;
   box-sizing: border-box;
   border-bottom: 2rpx solid #EBEBEB;
   display: flex;

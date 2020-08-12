@@ -27,57 +27,29 @@
 				<view>我的积分</view>
 			</view>
 		</view>
-		<!-- <view class="ul" wx:if="{{mark == 4 || mark == 5 || mark == 6}}">
-			<view class="li">
-				<view>{{userDetail.salesmonth}}</view>
-				<view>当月销量</view>
-			</view>
-			<view class="li">
-				<view>{{userDetail.commmonth}}</view>
-				<view>当月佣金</view>
-			</view>
-			<view class="li">
-				<view>{{userDetail.custommonth}}</view>
-				<view>当月新客户</view>
-			</view>
-		</view> -->
 	</view>
 
-	<!-- 未登录 -->
-	<view class="mTop {{mark !== 1?'mTop2':''}}" wx:else>
-		<view class="mTop-content" catchtap="goWarrant">
-			<image class="avator {{mark !==1 ?'avator2':''}}" src="../../image/avator.png"></image>
-			<view class="mTop-content-right">
-				<view class="mTop-user">
-					<view class="mTop-content-name">登录/注册</view>
-				</view>
-				<view class="tag">
-					<view class="tag-item {{mark !== 1 ?'tag-item2':''}}">个人：LV0</view>
-				</view>
-			</view>
+	<!-- 当前销量 -->
+	<view class="navList">
+		<view class="navItem">
+			<view class="navNum">{{userDetail.salesmonth}}</view>
+			<view class="navTxt">当月销量</view>
 		</view>
-		<view class="ul">
-			<view class="li">
-				<view>0</view>
-				<view>我的佣金</view>
-			</view>
-			<view class="li">
-				<view>0</view>
-				<view>我的米粒</view>
-			</view>
-			<view class="li">
-				<view>0</view>
-				<view>我的积分</view>
-			</view>
+		<view class="navItem">
+			<view class="navNum">{{userDetail.custommonth}}</view>
+			<view class="navTxt">当月新客户</view>
+		</view>
+		<view class="navItem">
+			<view class="navNum">{{userDetail.commmonth}}</view>
+			<view class="navTxt">当月佣金</view>
 		</view>
 	</view>
 
 	<!-- 轮播通告 -->
-	<view class="swiper">
-		<image src="../../image/bell.png" class="bell"></image>
+	<view class="swiperd">
 		<swiper autoplay="true" current="{{current}}" bindanimationfinish="swiperChange" class="swipers" circular="true">
 			<swiper-item catchtouchmove="stopTouchMove" class="swipers-item" wx:for="{{swiper}}" wx:key="index">
-				<view class="wrap">{{item}}</view>
+				<view class="wrap txt1">{{item}}</view>
 			</swiper-item>
 		</swiper>
 	</view>
@@ -117,18 +89,19 @@
 		<view class="table-content" wx:if="{{tableList.length>0}}">
 			<view class="table-item" wx:for="{{tableList}}" data-name="{{item.realname}}" wx:key="index" bindtap="goPayList">
 				<view class="table-item-left wrap">
-					<image src="../../image/medal1.png" wx:if="{{index==0}}" class="medal"></image>
+					<!-- <image src="../../image/medal1.png" wx:if="{{index==0}}" class="medal"></image>
 					<image src="../../image/medal2.png" wx:if="{{index==1}}" class="medal"></image>
-					<image src="../../image/medal3.png" wx:if="{{index==2}}" class="medal"></image>
-					<view wx:if="{{index>2}}">{{index+1}}</view>
+					<image src="../../image/medal3.png" wx:if="{{index==2}}" class="medal"></image> -->
+					<view wx:if="{{index>0}}">{{index+1}}</view>
 				</view>
 				<view class="table-item-right">
 					<view class="table-item-user">
 						<image src="../../image/avatorBg.png" wx:if="{{index==0}}" class="avatorBg"></image>
+						<image src="../../image/avatorBg1.png" wx:if="{{index==0}}" class="avatorBg1"></image>
 						<image class="table-item-avator" src="{{item.avatar}}"></image>
 						<view class="table-item-name wrap">{{item.realname?item.realname:'暂无昵称'}}</view>
 					</view>
-					<view class="table-item-number">{{item.order_score?item.order_score:0}}</view>
+					<view class="table-item-number {{index==0?'cc':''}}">{{item.order_score?item.order_score:0}}</view>
 				</view>
 			</view>
 		</view>

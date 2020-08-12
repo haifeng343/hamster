@@ -70,9 +70,18 @@ Page({
     
   },
 
+  toShare(){
+    wx.navigateTo({
+      url: '/pages/share/share',
+    })
+  },
+
   addClass(e){
     this.setData({
       showId:e.currentTarget.dataset.id
+    })
+    wx.getSystemInfo({
+      success: (result) => {},
     })
   },
 
