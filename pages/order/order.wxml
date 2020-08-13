@@ -1,6 +1,6 @@
 <view>
 	<view class="nav">
-		<view class="nav-item {{item.id == active?'active':''}}" data-id="{{item.id}}" wx:for="{{nav}}" wx:key="index" bindtap="setIndex">{{item.name}}</view>
+		<view class="nav-item {{item.id == active?'active':''}}" data-id="{{item.id}}" wx:for="{{nav}}" wx:key="index" bindtap="{{item.id == active?'':'setIndex'}}">{{item.name}}</view>
 	</view>
 </view>
 <view wx:if="{{list.length>0}}" class="scroll1">

@@ -16,7 +16,7 @@
 <view class="list">
 	<!-- 左侧导航 -->
 	<view class="nav">
-		<view class="navItem {{showId == item.id ? 'active' : ''}}" id="nav{{item.id}}" wx:for="{{navList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" catchtap="setItem">
+		<view class="navItem {{showId == item.id ? 'active' : ''}}" id="nav{{item.id}}" wx:for="{{navList}}" wx:key="index" data-id="{{item.id}}" data-name="{{item.name}}" catchtap="{{showId == item.id ? '' : 'setItem'}}">
 			{{item.name}}
 		</view>
 	</view>
