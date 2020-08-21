@@ -145,12 +145,13 @@ page {
   margin-bottom: 48rpx;
 }
 
-.li:active{
+.li:active {
   box-shadow: 14px 14px 20px rgba(0, 0, 0, 0.1),
-  -14px -14px 20px rgba(255, 255, 255, 1),
-  inset 14px 14px 20px rgba(0, 0, 0, 0.1),
-  inset -14px -14px 20px rgba(255, 255, 255, 1);
+    -14px -14px 20px rgba(255, 255, 255, 1),
+    inset 14px 14px 20px rgba(0, 0, 0, 0.1),
+    inset -14px -14px 20px rgba(255, 255, 255, 1);
 }
+
 .li:nth-child(3n) {
   margin-right: 0;
 }
@@ -214,4 +215,32 @@ page {
   height: 240rpx;
   background: rgba(199, 212, 249, 1);
   border-radius: 0 0 16rpx 16rpx;
+}
+
+.topTxt {
+  position: fixed;
+  width: 100%;
+  height: 215rpx;
+  line-height: 215rpx;
+  left: 50%;
+  text-align: center;
+  transform: translateX(-50%);
+  top: 0;
+  color: #f35626;
+  font-size: 38rpx;
+  font-weight: bold;
+  background-image: -webkit-linear-gradient(92deg, #f35626, #feab3a);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  -webkit-animation: hue 60s infinite linear;
+}
+
+@keyframes hue {
+  from {
+    -webkit-filter: hue-rotate(0deg);
+  }
+
+  to {
+    -webkit-filter: hue-rotate(-360deg);
+  }
 }

@@ -105,7 +105,7 @@ page {
   margin: 140rpx auto 0;
   position: relative;
 }
-.listitem {
+.listitem2 {
   width: 100%;
   height: auto;
   display: flex;
@@ -117,7 +117,7 @@ page {
   margin: 36rpx 20rpx 0 0;
 }
 
-.img1 {
+.img2 {
   width: 174rpx;
   height: 174rpx;
   border-radius: 6rpx;
@@ -327,4 +327,64 @@ page {
   text-align: center;
   z-index: 0;
   }
-  
+  .nav1{
+    width: 100%;
+    height: 80rpx;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  .navItem1{
+    display: flex;
+    flex: 1;
+    height: 100%;
+    color: #333;
+    font-size: 28rpx;
+    justify-content: center;
+    align-items: center;
+    transition: all .1s ease-in;
+  }
+  .active1{
+    color: #2D67FF;
+    box-sizing: border-box;
+    border-bottom: 4rpx solid #2D67FF;
+  }
+  .list1{
+    width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-top: 40rpx;
+  }
+  .listItem{
+    width: 250rpx;
+    height: 250rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .img1{
+    width: 200rpx;
+    height: 200rpx;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+  .txt1{
+    font-size: 26rpx;
+    line-height: 50rpx;
+  }
+  .txt2{
+    font-size: 26rpx;
+    color: #666;
+    position: absolute;
+    bottom: 250rpx;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .contact{
+    position: absolute;
+    bottom: 100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+  }

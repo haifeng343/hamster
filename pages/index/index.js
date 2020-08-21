@@ -1,6 +1,7 @@
 //index.js
 //获取应用实例
 const app = getApp();
+const neil = require('../../utils/request.js');
 const util = require('../../utils/util.js');
 
 Page({
@@ -54,7 +55,30 @@ Page({
         img:'../../image/i9.png',
         name:'更多'
       },
-    ]
+    ],
+    navList1:[
+      {
+        id:1,
+        img:'../../image/p1.png',
+        name:'五金'
+      },
+      {
+        id:2,
+        img:'../../image/p2.png',
+        name:'口红'
+      },
+      {
+        id:3,
+        img:'../../image/p3.png',
+        name:'彩妆'
+      },
+      {
+        id:4,
+        img:'../../image/p4.png',
+        name:'香水'
+      },
+    ],
+    pc:null,
   },
   onLoad(options){
     if(options.scene){
@@ -64,10 +88,22 @@ Page({
       backgroundColor: '#327DFB',
       frontColor: '#ffffff'
     })
+    if(this.data.pc==1){
+      wx.setNavigationBarTitle({
+        title: '小科鼠|科研优选互动平台',
+      })
+    }else{
+      wx.setNavigationBarTitle({
+        title: '小科鼠',
+      })
+    }
   },
 
   onShow(){
-    
+    this.getPc();
+    this.setData({
+      pc:wx.getStorageSync('') || 2
+    })
   },
 
   toShare(){
@@ -107,6 +143,20 @@ Page({
       url: '/pages/search/search',
     })
   }),
+
+    // 获取后台接口
+    getPc() {
+      let that = this;
+      let url = '​​/api/xksxcx/postnum';
+      neil.post(url, {
+        ID:1
+      }, function (res) {
+        that.setData({
+          pc:res.data.result.num
+        })
+        wx.setStorageSync('pc', res.data.result.num);
+      }, null, false)
+    },
 
   // 去分享
   goShare:util.debounce(function(){

@@ -29,6 +29,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pc:null,
     baseUrl: neil.baseImg,
     num: 0, //1选择支付方式 2选择配送方式 3收货地址选择
     payId: 1, //支付方式
@@ -83,7 +84,19 @@ Page({
   },
 
   onShow() {
-
+    this.getPc();
+  },
+   // 获取后台接口
+   getPc() {
+    let that = this;
+    let url = '​​/api/xksxcx/postnum';
+    neil.post(url, {
+    }, function (res) {
+      that.setData({
+        pc:res.data.result.num
+      })
+      wx.setStorageSync('pc', res.data.result.num);
+    }, null, false)
   },
   // 获取购物车包列表
   init() {

@@ -553,3 +553,6 @@ page {
   width: 44rpx;
   height: 54rpx;
 }
+.contact{
+  margin: 300rpx auto!important;
+}

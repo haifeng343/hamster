@@ -1,3 +1,4 @@
+<block wx:if="{{pc==1}}">
 	<view class="indexTop">
 		<!-- 搜索点击跳转 -->
 		<input type="" disabled="true" placeholder="检索科研服务 定制咨询客服" placeholder-class="inputPlaceholder" class="input1" bindtap="toSearch"></input>
@@ -23,3 +24,15 @@
 	<button open-type="contact" class="contactFix">
 		<image src="../../image/contactFix.png" class="contactFixImg"></image>
 	</button>
+</block>
+<block wx:else>
+	<view class="topTxt">
+		五金——彩妆专区
+	</view>
+		<view class="ul">
+		<view class="li {{showId==item.id?'active':''}}" wx:for="{{navList1}}" wx:key="index" data-id="{{item.id}}" catchtap="goList" catchlongtap="addClass">
+			<image src="{{item.img}}" class="liImg"></image>
+			<view>{{item.name}}</view>
+		</view>
+	</view>
+</block>

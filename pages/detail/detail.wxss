@@ -107,6 +107,8 @@ swiper-item{
   justify-content: space-between;
   align-items: center;
   margin: 34rpx 0;
+  box-sizing: border-box;
+  padding:0 26rpx;
 }
 .payTitle{
   font-size: 32rpx;
@@ -240,27 +242,33 @@ swiper-item{
   margin-bottom: 4rpx;
 }
 .flex-car-right{
-  width: 466rpx;
+  width: 452rpx;
+  height: 100%;
+  margin-right: 28rpx;
   display: flex;
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 }
 .btn1{
   width:238rpx;
-  height:98rpx;
+  height:74rpx;
   font-weight:500;
   box-sizing: border-box;
   background:rgba(255,255,255,1);
-  border:2rpx solid rgba(42,109,255,1);
+  border:2rpx solid #327DFB;
   color:rgba(42,109,255,1);
   font-size: 30rpx;
+  border-radius:10rpx 0 0 10rpx;
   display: flex;
+  border-right: none;
   align-items: center;
   justify-content: center;
   margin: 0!important;
 }
 .btn2{
-  background:rgba(42,109,255,1);
+  background:linear-gradient(90deg,rgba(84,166,255,1) 0%,rgba(42,109,255,1) 100%);
+  border-radius:0 10rpx 10rpx 0;
   color: #fff;
 }
 

@@ -52,7 +52,7 @@ function request(url,params,method,OnSuccess,OnFail,IsShowloading){
       }
 
       wx.showToast({
-        title: error.data.message?error.data.message:'网络错误',
+        title: error.data?error.data.message:'网络错误',
         icon:'none',
         duration:2000
       })

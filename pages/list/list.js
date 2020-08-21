@@ -8,6 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    pc: null,
     baseUrl: neil.baseImg,
     toView: '', //冒点
     scrollLeft: 0, //距离左边距离
@@ -66,18 +67,46 @@ Page({
     showCarList: false, //是否为当前操作的tab
 
     shopList: [], //购物车商品列表
+
+    showId1: 2,
+    navList1: [{
+        id: 1,
+        name: '五金'
+      },
+      {
+        id: 2,
+        name: '口红'
+      },
+      {
+        id: 3,
+        name: '彩妆'
+      },
+      {
+        id: 4,
+        name: '香水'
+      },
+    ],
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
- 
+    if (this.data.pc == 1) {
+      wx.setNavigationBarTitle({
+        title: '小科鼠|科研优选互动平台',
+      })
+    } else {
+      wx.setNavigationBarTitle({
+        title: '小科鼠',
+      })
+    }
   },
 
   // 初始化冒点
   onShow() {
     let that = this;
+    that.getPc();
     that.setData({
       userInfo: wx.getStorageSync('userInfo') || null
     })
@@ -85,6 +114,23 @@ Page({
       showId: wx.getStorageSync('active') || 1,
     })
     that.init();
+  },
+  // 获取后台接口
+  getPc() {
+    let that = this;
+    let url = '​​/api/xksxcx/postnum';
+    neil.post(url, {}, function (res) {
+      that.setData({
+        pc: res.data.result.num
+      })
+      wx.setStorageSync('pc', res.data.result.num);
+    }, null, false)
+  },
+
+  setActive(e) {
+    this.setData({
+      showId1: e.currentTarget.dataset.id
+    })
   },
 
   // 数据初始化
@@ -375,7 +421,7 @@ Page({
           let params = {
             planid: item.planid,
             userid: that.data.userInfo.userid,
-            num: parseInt(item.number)+1,
+            num: parseInt(item.number) + 1,
             shoptype: 1, //1不累加 2累加
           };
           neil.post(url, params, function (res) {
@@ -489,7 +535,7 @@ Page({
   /**
    * 用户点击右上角分享
    */
-  onShareTimeline(){
+  onShareTimeline() {
     return {
       title: '小科鼠|科研优选互动平台',
       path: '/pages/index/index?scene=' + wx.getStorageSync('userInfo').invite,
