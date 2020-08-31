@@ -145,12 +145,12 @@ Page({
   },
 
   // 消费记录
-  goPayList(e){
-    this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/payList/payList?name='+e.currentTarget.dataset.name,
-    })
-  },
+  // goPayList(e){
+  //   this.IsLogin();
+  //   wx.navigateTo({
+  //     url: '/pages/payList/payList?name='+e.currentTarget.dataset.name,
+  //   })
+  // },
 
   // 邀请好友注册
   goShare(){

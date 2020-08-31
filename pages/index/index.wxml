@@ -30,7 +30,7 @@
 		五金——彩妆专区
 	</view>
 		<view class="ul">
-		<view class="li {{showId==item.id?'active':''}}" wx:for="{{navList1}}" wx:key="index" data-id="{{item.id}}" catchtap="goList" catchlongtap="addClass">
+		<view class="li {{showId==item.id?'active':''}}" wx:for="{{navList1}}" wx:key="index" data-id="{{item.id}}" catchtap="goList1" catchlongtap="addClass">
 			<image src="{{item.img}}" class="liImg"></image>
 			<view>{{item.name}}</view>
 		</view>

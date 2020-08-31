@@ -13,7 +13,16 @@
 				<view class="time wrap pd">{{detail.worktime}}</view>
 				<view class="money2 wrap pd">¥{{detail.price}}<text class="old_price2">￥{{detail.original_price}}</text></view>
 			</view>
-			<view class="detail-title pd">产品型号</view>
+			<view class="column1 pd">
+				<view class="" wx:if="{{detail.remarkone}}">
+					<view class="processLabelDec">产品说明</view>
+					<view class="processTxt"></view>
+				</view>
+				<view class="processItem" wx:if="{{detail.remarktwo !== '0'}}">
+					<!-- <view class="processLabel">STEP 5</view> -->
+					<view class="processTxt">{{detail.remarkone+' '+detail.remarktwo}}</view>
+				</view>
+			</view>
 			<view class="detail-list pd">
 				<view class="detail-item {{showId == item.planid ? 'active1' : ''}}" wx:for="{{detail.list}}" wx:key="index" data-id="{{item.planid}}" catchtap="{{showId == item.planid?'':'setItem'}}">{{item.planname}}</view>
 			</view>
@@ -59,14 +68,7 @@
 					<view class="processLabel">STEP 4</view>
 					<view class="processTxt">小科鼠预测靶点的特异性与结构、构建慢病毒干扰质粒、进行鉴定测序抽提服务</view>
 				</view> -->
-				<view class="" wx:if="{{detail.remarkone}}">
-					<view class="processLabelDec">产品说明</view>
-					<view class="processTxt"></view>
-				</view>
-				<view class="processItem" wx:if="{{detail.remarktwo !== '0'}}">
-					<!-- <view class="processLabel">STEP 5</view> -->
-					<view class="processTxt">{{detail.remarkone+' '+detail.remarktwo}}</view>
-				</view>
+				
 			</view>
 		</view>
 		<view class="borBottom"></view>

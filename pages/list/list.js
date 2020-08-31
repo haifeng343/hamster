@@ -8,7 +8,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pc: null,
+    pc: '',
     baseUrl: neil.baseImg,
     toView: '', //冒点
     scrollLeft: 0, //距离左边距离
@@ -106,25 +106,14 @@ Page({
   // 初始化冒点
   onShow() {
     let that = this;
-    that.getPc();
     that.setData({
-      userInfo: wx.getStorageSync('userInfo') || null
+      userInfo: wx.getStorageSync('userInfo') || null,
+      pc:wx.getStorageSync('pc') || 1
     })
     that.setData({
       showId: wx.getStorageSync('active') || 1,
     })
     that.init();
-  },
-  // 获取后台接口
-  getPc() {
-    let that = this;
-    let url = '​​/api/xksxcx/postnum';
-    neil.post(url, {}, function (res) {
-      that.setData({
-        pc: res.data.result.num
-      })
-      wx.setStorageSync('pc', res.data.result.num);
-    }, null, false)
   },
 
   setActive(e) {

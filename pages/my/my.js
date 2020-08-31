@@ -7,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    pc:null,
+    pc: '',
     mark: 3, //3普通用户 4 5 6合伙人
 
     tableNav: ['当月排行', '当季排行', '全年排行'], //初级合伙人榜单nav
@@ -26,7 +26,7 @@ Page({
       '恭喜用户x成功邀请好友注册',
       '恭喜用户扑街仔成功邀请好友注册',
     ],
-    interval:5000,//轮播切换时间
+    interval: 5000, //轮播切换时间
     current: 0, //轮播index
     user: null, //个人的资料信息
     protocol: null, //申请人信息
@@ -43,7 +43,9 @@ Page({
   // 获取个人信息
   onShow() {
     let that = this;
-    that.getPc();
+    that.setData({
+      pc:wx.getStorageSync('pc') || 1
+    })
     that.setData({
       userInfo: wx.getStorageSync('userInfo') || null,
       mark: wx.getStorageSync('userInfo').roleid || 3
@@ -53,18 +55,6 @@ Page({
       that.goProtocol1();
     }
   },
-      // 获取后台接口
-      getPc() {
-        let that = this;
-        let url = '​​/api/xksxcx/postnum';
-        neil.post(url, {
-        }, function (res) {
-          that.setData({
-            pc:res.data.result.num
-          })
-          wx.setStorageSync('pc', res.data.result.num);
-        }, null, false)
-      },
 
   // 刷新且设置个人信息
   getMyInfo() {
@@ -80,8 +70,8 @@ Page({
       userInfo1.enables = res.data.result.enables;
       userInfo1.integral = res.data.result.integral;
       that.setData({
-        roleid:userInfo1.roleid,
-        userInfo:res.data.result
+        roleid: userInfo1.roleid,
+        userInfo: res.data.result
       })
       wx.setStorageSync('userInfo', userInfo1);
     }, null, false)
@@ -102,7 +92,7 @@ Page({
 
   init() {
     let that = this;
-    if(!wx.getStorageSync('userInfo')){
+    if (!wx.getStorageSync('userInfo')) {
       return
     }
     that.setData({
@@ -124,24 +114,33 @@ Page({
   goWrap: util.debounce(function () {
     let that = this;
     that.IsLogin();
+    if(!that.data.userInfo.idcardno){
+      wx.navigateTo({
+        url: '/pages/spot/spot?num=1',
+      })
+      return;
+    }
     neil.post('/am/cps/getissigning', {
       id: that.data.userInfo.userid
     }, function (res) {
-      if(res.data.result == 'null'){//跳转用户协议
+      if (res.data.result == null) { //跳转用户协议
         neil.post('/am/cps/wdsigning', {
           userId: parseFloat(that.data.userInfo.userid),
-          userName:that.data.userInfo.realname,
-          cid:that.data.userInfo.idcardno,
-          cidType:0,
-          openId:that.data.userInfo.openId
+          userName: that.data.userInfo.realname,
+          cid: that.data.userInfo.idcardno,
+          cidType: 0,
+          openId: that.data.userInfo.openId
         }, function (res) {
+          if(res.data.message == '您已经签约或解约'){
+            
+          }
           wx.navigateTo({
-            url: '/pages/webview1/webview1?http='+res.data.result,
+            url: '/pages/webview1/webview1?http=' + res.data.result,
           })
         }, null, false)
-      }else{//跳转到提现
+      } else { //跳转到提现
         wx.navigateTo({
-          url: '/pages/draw/draw',
+          url: '/pages/draw/draw?balance='+that.data.userInfo.balance,
         })
       }
     }, null, false)
@@ -151,7 +150,7 @@ Page({
   goMyOrder: util.debounce(function (e) {
     this.IsLogin();
     wx.navigateTo({
-      url: '/pages/order/order?status='+e.currentTarget.dataset.status,
+      url: '/pages/order/order?status=' + e.currentTarget.dataset.status,
     })
   }, 500),
 
@@ -166,9 +165,9 @@ Page({
   // 查看合伙人协议
   toWebview: util.debounce(function (e) {
     wx.navigateTo({
-      url: '/pages/webwiew/webview?type='+e.currentTarget.dataset.roleid,
+      url: '/pages/webwiew/webview?type=' + e.currentTarget.dataset.roleid,
     })
-  },500),
+  }, 500),
 
   // 校验是否申请
   goProtocol1: util.debounce(function () {

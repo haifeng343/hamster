@@ -34,7 +34,8 @@
     "pages/drawLog/drawLog",
     "pages/payok/payok",
     "pages/payeor/payeor",
-    "pages/orderSDetail/orderSDetail"
+    "pages/orderSDetail/orderSDetail",
+    "pages/list1/list1"
   ],
   "window":{
     "backgroundTextStyle":"light",

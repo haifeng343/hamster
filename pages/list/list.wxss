@@ -345,7 +345,7 @@ page {
     transition: all .1s ease-in;
   }
   .active1{
-    color: #2D67FF;
+    color: #fff;
     box-sizing: border-box;
     border-bottom: 4rpx solid #2D67FF;
   }

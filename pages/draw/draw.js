@@ -8,11 +8,16 @@ Page({
    */
   data: {
     money:'',//提现金额
-    userInfo:wx.getStorageSync('userInfo') || null
+    userInfo:wx.getStorageSync('userInfo') || null,
+    balance:wx.getStorageSync('userInfo').balance || 0
   },
 
   onLoad: function (options) {
-  
+    if(options.balance){
+      this.setData({
+        balance:options.balance
+      })
+    }
   },
 
   /**
@@ -26,7 +31,19 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getMyInfo();
+  },
+  // 获取个人用户信息
+  getMyInfo() {
+    let that = this;
+    let url = '/api/xksxcx/getuserrefresh';
+    neil.post(url, {
+      id: parseFloat(that.data.userInfo.userid)
+    }, function (res) {
+      that.setData({
+        balance: res.data.result.balance
+      })
+    }, null, false)
   },
 
   // 获取提现金额

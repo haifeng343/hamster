@@ -138,26 +138,15 @@ page{
   margin: 58rpx auto 0;
   margin-bottom: 150rpx;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+.now{
+  display: flex;
+  justify-content: flex-start;
+  flex-direction: row;
+  font-size: 26rpx;
+  color: #333;
+  align-items: center;
+  margin: 32rpx auto 0;
+  margin-bottom: 180rpx;
+}
 
 

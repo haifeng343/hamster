@@ -1,0 +1,85 @@
+<view class="nav1">
+		<view class="navItem1 {{item.id== showId1?'active1':''}}" wx:for="{{navList1}}" catchtap="setActive" data-id="{{item.id}}" wx:key="index">{{item.name}}</view>
+	</view>
+
+	<view class="list1">
+		<view class="listItem" wx:if="{{showId1==1}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3770285050,3874077506&fm=26&gp=0.jpg"></image>
+			<view class="txt1">优质五金压冲件</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==1}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2189868592,2632889018&fm=26&gp=0.jpg"></image>
+			<view class="txt1">五金代工</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==1}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1421658496,422778778&fm=26&gp=0.jpg"></image>
+			<view class="txt1">不锈钢钛合金楼梯</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==1}}">
+			<image class="img1" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1049770390,447065481&fm=26&gp=0.jpg"></image>
+			<view class="txt1">五金车床代加工</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==1}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=1513398598,870315988&fm=26&gp=0.jpg"></image>
+			<view class="txt1">冲压模具</view>
+		</view>
+
+		<view class="listItem" wx:if="{{showId1==2}}">
+			<image class="img1" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=241493760,2000168860&fm=26&gp=0.jpg"></image>
+			<view class="txt1">levreslips口红</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==2}}">
+			<image class="img1" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=225720114,1438020064&fm=26&gp=0.jpg"></image>
+			<view class="txt1">香奈儿</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==2}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2707597731,3298655223&fm=26&gp=0.jpg"></image>
+			<view class="txt1">kiko</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==2}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=2230976244,4230818814&fm=26&gp=0.jpg"></image>
+			<view class="txt1">雅邦</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==2}}">
+			<image class="img1" src="https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=2195942642,1189939933&fm=26&gp=0.jpg"></image>
+			<view class="txt1">红苹果</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==3}}">
+			<image class="img1" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=1344781553,3920069817&fm=26&gp=0.jpg"></image>
+			<view class="txt1">彩妆一套</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==3}}">
+			<image class="img1" src="https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=2254703153,2364378018&fm=26&gp=0.jpg"></image>
+			<view class="txt1">新娘彩妆</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==3}}">
+			<image class="img1" src="https://ns-strategy.cdn.bcebos.com/ns-strategy/upload/fc_big_pic/part-00787-3711.jpg"></image>
+			<view class="txt1">彩妆全家桶</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==3}}">
+			<image class="img1" src="https://ns-strategy.cdn.bcebos.com/ns-strategy/upload/fc_big_pic/part-00045-3660.jpg"></image>
+			<view class="txt1">彩妆一套</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==4}}">
+			<image class="img1" src="https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=2421489581,3535183912&fm=26&gp=0.jpg"></image>
+			<view class="txt1">爱马仕印度花园</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==4}}">
+			<image class="img1" src="https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=296892420,1227670478&fm=26&gp=0.jpg"></image>
+			<view class="txt1">马克丹尼女士香水</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==4}}">
+			<image class="img1" src="https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=3160121122,2925891256&fm=26&gp=0.jpg"></image>
+			<view class="txt1">香奈儿</view>
+		</view>
+		<view class="listItem" wx:if="{{showId1==4}}">
+			<image class="img1" src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=203537536,4025444114&fm=26&gp=0.jpg"></image>
+			<view class="txt1">迪奥香水</view>
+		</view>
+	</view>
+
+	<view class="txt2">若要咨询详情，请联系客服</view>
+	<button open-type="contact" class="contact">
+		<image src="../../image/m6.png" class="contact-img"></image>
+		<view>有疑问，找小科鼠</view>
+	</button>

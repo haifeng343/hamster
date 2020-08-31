@@ -8,8 +8,8 @@
   <view class="lesson"></view>
   <view class="title"></view>
 </view> -->
-
-<view class="nine">
-  <view class="item" wx:for="{{nineList}}" :key="index">{{item}}</view>
+<view>1111</view>
+<!-- <view class="nine">
+  <view class="item" wx:for="{{nineList}}" wx:key="index">{{item}}</view>
 </view>
-<button open-type="getPhoneNumber" bindgetphonenumber="getUserPhone">获取用户手机号</button>
+<button open-type="getPhoneNumber" bindgetphonenumber="getUserPhone">获取用户手机号</button> -->

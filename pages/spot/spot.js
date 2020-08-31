@@ -24,7 +24,7 @@ Page({
     access_token: '', //拿着去识别图片
     userInfo: null,
     user: null, //用户个人信息
-
+    isChecked: false, //1勾上 2不勾上
   },
 
   /**
@@ -60,7 +60,13 @@ Page({
       cardNumber: wx.getStorageSync('userInfo').bankno || '', //银行卡号
     })
   },
-
+  // 同意
+  changeSelect() {
+    let that = this;
+    that.setData({
+      isChecked: !that.data.isChecked
+    })
+  },
   onShow() {
 
   },
@@ -138,7 +144,7 @@ Page({
   choose(status, index) {
     let that = this;
     wx.chooseImage({
-      sourceType: index == 1?['album']:['camera'],
+      sourceType: index == 1 ? ['album'] : ['camera'],
       success(res) {
         wx.uploadFile({
           url: neil.baseUrl + '/api/xksxcx/ocridcrad', //开发者服务器地址
@@ -263,6 +269,7 @@ Page({
         cardImgone: that.data.img1,
         cardImgtwo: that.data.img2,
         national: that.data.nationality,
+        issigning: that.data.isChecked == true ? 1 : 0
       }
       neil.post(url, params, function (res) {
         let userInfo1 = that.data.userInfo;
@@ -328,7 +335,12 @@ Page({
       })
     }
   }, 500),
-
+  // 用户须知
+  goWebview: util.debounce(function () {
+    wx.navigateTo({
+      url: '/pages/webwiew/webview?type=2',
+    })
+  }),
   /**
    * 用户点击右上角分享
    */
