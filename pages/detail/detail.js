@@ -110,10 +110,11 @@ Page({
   },
 
   // 预览图片
-  priview(){
+  priview(e){
     let that = this;
     wx.previewImage({
       urls: that.data.banner,
+      current:e.currentTarget.dataset.current
     })
   },
 

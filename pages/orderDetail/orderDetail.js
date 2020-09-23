@@ -469,19 +469,19 @@ Page({
       if (that.data.delId == 3) {
 
       } else {
-        // if (!that.data.recevierInfo) {
-        //   wx.showToast({
-        //     title: '请选择收货人信息',
-        //     icon: 'none',
-        //     duration: 2000
-        //   })
-        //   return false;
-        // }
-        // let recevierInfo = {};
-        // recevierInfo.id = 0;
-        // that.setData({
-        //   recevierInfo: recevierInfo
-        // })
+        if (!that.data.recevierInfo) {
+          wx.showToast({
+            title: '请选择收货人信息',
+            icon: 'none',
+            duration: 2000
+          })
+          return false;
+        }
+        let recevierInfo = {};
+        recevierInfo.id = 0;
+        that.setData({
+          recevierInfo: recevierInfo
+        })
       }
       let tempArr1 = that.data.shopList;
       let tempArr = that.data.checkList;

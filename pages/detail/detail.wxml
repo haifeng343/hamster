@@ -1,7 +1,7 @@
 <view class="content">
 	<swiper class="swiper" indicator-dots="true" indicator-active-color="#fff" autoplay="{{true}}" bindanimationfinish="swiperChange" current="{{current}}" circular="true">
 		<swiper-item wx:for="{{banner}}" wx:key="index">
-			<image src="{{item}}" catchtap="priview" class="banner1"></image>
+			<image src="{{item}}" data-current="{{item}}" catchtap="priview" class="banner1"></image>
 		</swiper-item>
 	</swiper>
 
@@ -24,7 +24,7 @@
 				</view>
 			</view>
 			<view class="detail-list pd">
-				<view class="detail-item {{showId == item.planid ? 'active1' : ''}}" wx:for="{{detail.list}}" wx:key="index" data-id="{{item.planid}}" catchtap="{{showId == item.planid?'':'setItem'}}">{{item.planname}}</view>
+				<view class="detail-item {{showId == item.planid ? 'active2' : ''}}" wx:for="{{detail.list}}" wx:key="index" data-id="{{item.planid}}" catchtap="{{showId == item.planid?'':'setItem'}}">{{item.planname}}</view>
 			</view>
 			<view class="pay">
 				<view class="payTitle">购买数量</view>

@@ -192,7 +192,7 @@ Page({
   },
 
   // 将当前商品添加进购物车
-  addCardCount(e) {
+  addCardCount: util.debounce(function (e) {
     let that = this;
     let tempArr = that.data.list;
     let tempArr1 = that.data.carList || [];
@@ -210,7 +210,7 @@ Page({
       list: tempArr
     });
     that.computedFc();
-  },
+  }),
 
   // 获取当前输入框的值
   hasInput(e) {
@@ -299,7 +299,7 @@ Page({
   },
 
   //获取到购物车的列表
-  getCardList() {
+  getCardList: util.debounce(function () {
     let that = this;
     let url = '/api/xksxcx/postshopcar';
     let params = {
@@ -347,10 +347,10 @@ Page({
       })
       that.computedFc();
     }, null, false)
-  },
+  }),
 
   // 添加/减少
-  computedTo(e) {
+  computedTo: util.debounce(function (e) {
     let that = this;
     if (!that.data.userInfo) {
       wx.navigateTo({
@@ -440,7 +440,7 @@ Page({
       showCarList: tempArr1.length > 0 ? true : false,
     })
     that.computedFc();
-  },
+  }),
   // 当前商品数量变化时调用该方法
   deleteShhop(id, num) {
     let that = this;

@@ -147,7 +147,7 @@
 		<view class="fare fare1" wx:if="{{riceprice>0}}">
 			<checkbox wx:if="{{status==1}}" checked="{{isCheck==true}}" bindtap="changeCheck">
 				<view>可抵扣米粒：¥{{kedikou}}</view>
-				<view wx:if="{{saveMili>0}}">剩余米粒：¥{{isCheck==true?saveMili:riceprice}}</view>
+				<view class="TextRight" wx:if="{{saveMili>0}}">剩余米粒：¥{{isCheck==true?saveMili:riceprice}}</view>
 			</checkbox>
 		</view>
 		<view class="fare">运费：¥{{delMoney}}</view>

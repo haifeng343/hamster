@@ -3,7 +3,7 @@
 		<!-- 搜索点击跳转 -->
 		<input type="" disabled="true" placeholder="检索科研服务 定制咨询客服" placeholder-class="inputPlaceholder" class="input1" bindtap="toSearch"></input>
 		<swiper class="swiperContainer" indicator-dots="true" autoplay="{{true}}" indicator-dots="{{indicatorDots}}">
-			<swiper-item>
+			<swiper-item catchtap="toList">
 				<image class="img1" src="../../image/banner.png"></image>
 			</swiper-item>
 			<swiper-item catchtap="toShare">

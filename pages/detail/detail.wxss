@@ -304,8 +304,7 @@ swiper-item{
   margin-right: 20rpx!important;
   border-radius: 12rpx;
 }
-
-.active1{
+.active2{
   background: #2A6DFF;
   color: #fff;
 }

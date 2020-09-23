@@ -44,7 +44,7 @@ Page({
   onShow() {
     let that = this;
     that.setData({
-      pc:wx.getStorageSync('pc') || 1
+      pc: wx.getStorageSync('pc') || 1
     })
     that.setData({
       userInfo: wx.getStorageSync('userInfo') || null,
@@ -114,52 +114,58 @@ Page({
   goWrap: util.debounce(function () {
     let that = this;
     that.IsLogin();
-    if(!that.data.userInfo.idcardno){
-      wx.navigateTo({
-        url: '/pages/spot/spot?num=1',
-      })
-      return;
-    }
-    neil.post('/am/cps/getissigning', {
-      id: that.data.userInfo.userid
-    }, function (res) {
-      if (res.data.result == null) { //跳转用户协议
-        neil.post('/am/cps/wdsigning', {
-          userId: parseFloat(that.data.userInfo.userid),
-          userName: that.data.userInfo.realname,
-          cid: that.data.userInfo.idcardno,
-          cidType: 0,
-          openId: that.data.userInfo.openId
-        }, function (res) {
-          if(res.data.message == '您已经签约或解约'){
-            
-          }
-          wx.navigateTo({
-            url: '/pages/webview1/webview1?http=' + res.data.result,
-          })
-        }, null, false)
-      } else { //跳转到提现
+    if (this.data.userInfo) {
+      if (!that.data.userInfo.idcardno) {
         wx.navigateTo({
-          url: '/pages/draw/draw?balance='+that.data.userInfo.balance,
+          url: '/pages/spot/spot?num=1',
         })
+        return;
       }
-    }, null, false)
+      neil.post('/am/cps/getissigning', {
+        id: that.data.userInfo.userid
+      }, function (res) {
+        if (res.data.result == null) { //跳转用户协议
+          neil.post('/am/cps/wdsigning', {
+            userId: parseFloat(that.data.userInfo.userid),
+            userName: that.data.userInfo.realname,
+            cid: that.data.userInfo.idcardno,
+            cidType: 0,
+            openId: that.data.userInfo.openId
+          }, function (res) {
+            if (res.data.message == '您已经签约或解约') {
+
+            }
+            wx.navigateTo({
+              url: '/pages/webview1/webview1?http=' + res.data.result,
+            })
+          }, null, false)
+        } else { //跳转到提现
+          wx.navigateTo({
+            url: '/pages/draw/draw?balance=' + that.data.userInfo.balance,
+          })
+        }
+      }, null, false)
+    }
   }, 500),
 
   // 我的订单
   goMyOrder: util.debounce(function (e) {
     this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/order/order?status=' + e.currentTarget.dataset.status,
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/order/order?status=' + e.currentTarget.dataset.status,
+      })
+    }
   }, 500),
 
   // 我的地址
   goAddress: util.debounce(function () {
     this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/addressList/addressList',
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/addressList/addressList',
+      })
+    }
   }, 500),
 
   // 查看合伙人协议
@@ -186,57 +192,65 @@ Page({
   goProtocol: util.debounce(function () {
     let that = this;
     that.IsLogin();
-    if (!that.data.userInfo) {
-      wx.navigateTo({
-        url: '/pages/user/user',
-      })
-      return;
-    }
-    if (!that.data.protocol) { //去协议阅读界面
-      wx.navigateTo({
-        url: '/pages/protocol/protocol',
-      })
-    } else if (that.data.protocol.ischeck == 1) { //去合伙人填写界面
-      wx.navigateTo({
-        url: '/pages/apply/apply',
-      })
-    } else if (that.data.protocol.ischeck == 2 && that.data.protocol.audittype == 1) { //申请中
-      wx.navigateTo({
-        url: '/pages/orderStatus/orderStatus?IsStatus=3&status=3',
-      })
-    } else if (that.data.protocol.audittype == 2) { //申请成功  未完成需要用户申请成功协议特权展示等
-      wx.navigateTo({
-        url: '/pages/webview/webview',
-      })
-    } else if (that.data.protocol.audittype == 3) { //申请失败
-      wx.navigateTo({
-        url: '/pages/orderStatus/orderStatus?IsStatus=3&status=4&txt=' + that.data.protocol.shrremark,
-      })
+    if (this.data.userInfo) {
+      if (!that.data.userInfo.realname) {
+        wx.navigateTo({
+          url: '/pages/user/user',
+        })
+        return;
+      }
+      if (!that.data.protocol) { //去协议阅读界面
+        wx.navigateTo({
+          url: '/pages/protocol/protocol',
+        })
+      } else if (that.data.protocol.ischeck == 1) { //去合伙人填写界面
+        wx.navigateTo({
+          url: '/pages/apply/apply',
+        })
+      } else if (that.data.protocol.ischeck == 2 && that.data.protocol.audittype == 1) { //申请中
+        wx.navigateTo({
+          url: '/pages/orderStatus/orderStatus?IsStatus=3&status=3',
+        })
+      } else if (that.data.protocol.audittype == 2) { //申请成功  未完成需要用户申请成功协议特权展示等
+        wx.navigateTo({
+          url: '/pages/webview/webview',
+        })
+      } else if (that.data.protocol.audittype == 3) { //申请失败
+        wx.navigateTo({
+          url: '/pages/orderStatus/orderStatus?IsStatus=3&status=4&txt=' + that.data.protocol.shrremark,
+        })
+      }
     }
   }, 500),
 
   // 邀请好友注册
   goShare: util.debounce(function () {
     this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/share/share',
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/share/share',
+      })
+    }
   }, 500),
 
   // 我的资料
   goUser: util.debounce(function () {
     this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/user/user',
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/user/user',
+      })
+    }
   }, 500),
 
   // 我的圈子
   goMyGroup: util.debounce(function () {
     this.IsLogin();
-    wx.navigateTo({
-      url: '/pages/myGroup/myGroup?mark=' + this.data.mark,
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/myGroup/myGroup?mark=' + this.data.mark,
+      })
+    }
   }, 500),
   /**
    * 用户点击右上角分享

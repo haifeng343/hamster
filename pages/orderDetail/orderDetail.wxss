@@ -12,6 +12,9 @@
 .t2{
   margin-right: 34rpx!important;
 }
+.TextRight{
+  text-align: right;
+}
 .mTop-top{
   width: 100%;
   height:194rpx;

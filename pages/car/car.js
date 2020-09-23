@@ -15,21 +15,21 @@ Page({
       wx.setStorageSync('isGetCarList', true);
     }
     // if (wx.getStorageSync('isGetCarList')) {
-      if (that.data.userInfo) {
-        this.init();
-      }
-      that.setData({
-        checkList: [],
-        payMoney: 0,
-        save: 0,
-      })
+    if (that.data.userInfo) {
+      this.init();
+    }
+    that.setData({
+      checkList: [],
+      payMoney: 0,
+      save: 0,
+    })
     // }
   },
   /**
    * 页面的初始数据
    */
   data: {
-    pc:'',
+    pc: '',
     baseUrl: neil.baseImg,
     num: 0, //1选择支付方式 2选择配送方式 3收货地址选择
     payId: 1, //支付方式
@@ -77,15 +77,15 @@ Page({
       userInfo: wx.getStorageSync('userInfo')
     });
     // if (wx.getStorageSync('isGetCarList')) {
-      if(wx.getStorageSync('userInfo')){
-        that.init();
-      }
+    if (wx.getStorageSync('userInfo')) {
+      that.init();
+    }
     // }
   },
 
   onShow() {
     this.setData({
-      pc:wx.getStorageSync('pc') || 1
+      pc: wx.getStorageSync('pc') || 1
     })
   },
   // 获取购物车包列表
@@ -290,15 +290,26 @@ Page({
         if (item.list.length) {
           item.list.filter((item1, index) => {
             if (item1.planid == e.currentTarget.dataset.planid) {
-              item.list.splice(index, 1);
-              let url = '/api/xksxcx/delshopcarinfo';
-              let params = {
-                userid: parseInt(that.data.userInfo.userid),
-                shopbagid: parseInt(e.currentTarget.dataset.bagid),
-                planid: parseInt(e.currentTarget.dataset.planid),
-                shopid: parseInt(e.currentTarget.dataset.shopid)
-              };
-              neil.post(url, params, function (res) {}, null, false)
+              wx.showModal({
+                content: '确定删除该商品吗？',
+                success(res) {
+                  if (res.confirm) {
+                    item.list.splice(index, 1);
+                    let url = '/api/xksxcx/delshopcarinfo';
+                    let params = {
+                      userid: parseInt(that.data.userInfo.userid),
+                      shopbagid: parseInt(e.currentTarget.dataset.bagid),
+                      planid: parseInt(e.currentTarget.dataset.planid),
+                      shopid: parseInt(e.currentTarget.dataset.shopid)
+                    };
+                    neil.post(url, params, function (res) {
+                      if (res.data.success) {
+                        that.init();
+                      }
+                    }, null, false)
+                  }
+                }
+              })
             }
           })
         }
@@ -357,20 +368,31 @@ Page({
             if (item1.planid == e.currentTarget.dataset.id) {
               item1.num--;
               if (item1.num >= 1) {
-                that.deleteShhop(e.currentTarget.dataset.shopid, item1.num);
+                that.deleteShop(e.currentTarget.dataset.shopid, item1.num);
               }
               if (item1.num == 0) {
-                tempArr[index].list.splice(index1, 1);
-                let url = '/api/xksxcx/delshopcarinfo';
-                let params = {
-                  userid: parseInt(that.data.userInfo.userid),
-                  shopbagid: parseInt(e.currentTarget.dataset.shopbagid),
-                  planid: parseInt(e.currentTarget.dataset.id),
-                  shopid: parseInt(e.currentTarget.dataset.shopid)
-                };
-                neil.post(url, params, function (res) {
-
-                }, null, false)
+                item1.num = 1;
+                wx.showModal({
+                  content: '确定删除当前商品吗？',
+                  success(res) {
+                    if (res.confirm) {
+                      tempArr[index].list.splice(index1, 1);
+                      let url = '/api/xksxcx/delshopcarinfo';
+                      let params = {
+                        userid: parseInt(that.data.userInfo.userid),
+                        shopbagid: parseInt(e.currentTarget.dataset.shopbagid),
+                        planid: parseInt(e.currentTarget.dataset.id),
+                        shopid: parseInt(e.currentTarget.dataset.shopid)
+                      };
+                      neil.post(url, params, function (res) {
+                        that.init();
+                      }, null, false)
+                    } else {
+                      item1.num = 1;
+                      that.init();
+                    }
+                  }
+                })
               }
             }
           })
@@ -401,7 +423,7 @@ Page({
                 return;
               }
               item1.num++;
-              that.deleteShhop(e.currentTarget.dataset.shopid, item1.num);
+              that.deleteShop(e.currentTarget.dataset.shopid, item1.num);
             }
           })
         }
@@ -464,7 +486,7 @@ Page({
   },
 
   // 当前商品数量变化时调用该方法
-  deleteShhop(id, num) {
+  deleteShop(id, num) {
     let that = this;
     let url = '/api/xksxcx/editshopcarnumber';
     let params = {
@@ -489,16 +511,9 @@ Page({
       userInfo: wx.getStorageSync('userInfo')
     })
     if (that.data.userInfo.phone == '0' || !that.data.userInfo.phone) {
-      wx.showToast({
-        title: '请先进行手机登录',
-        icon: 'none',
-        duration: 1000
+      wx.navigateTo({
+        url: '/pages/login/login',
       })
-      setTimeout(function () {
-        wx.navigateTo({
-          url: '/pages/login/login',
-        })
-      }, 1000);
       return false;
     }
     let tempArr = that.data.carList;

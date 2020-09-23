@@ -14,7 +14,7 @@ Page({
     IsDisAbled: true, //是否显示点击获取验证码
     IsClick: false, //是否可以点击
     isChecked: false,
-    userInfo:null,//个人信息
+    userInfo: null, //个人信息
   },
 
   /**
@@ -23,9 +23,14 @@ Page({
   onLoad: function (options) {
 
   },
-  onShow(){
+  onShow() {
+    wx.showToast({
+      title: '请先进行手机登录',
+      icon: 'none',
+      duration: 1000
+    });
     this.setData({
-      userInfo:wx.getStorageSync('userInfo')
+      userInfo: wx.getStorageSync('userInfo')
     })
   },
 
@@ -54,7 +59,7 @@ Page({
   },
 
   // 发送验证码
-  hasGetCode:util.debounce(function() {
+  hasGetCode: util.debounce(function () {
     let that = this;
     let time = 60;
     if (!app.globalData.mobileReg.test(that.data.mobile)) {
@@ -109,7 +114,7 @@ Page({
   },
 
   // 登录
-  login:util.debounce(function() {
+  login: util.debounce(function () {
     let that = this;
     if (!that.data.mobile) {
       wx.showToast({
@@ -135,11 +140,11 @@ Page({
       })
       return false;
     }
-    if(!that.data.isChecked){
+    if (!that.data.isChecked) {
       wx.showToast({
         title: '请勾选用户服务协议',
-        icon:'none',
-        duration:2000
+        icon: 'none',
+        duration: 2000
       })
       return false;
     }
@@ -147,7 +152,7 @@ Page({
     let params = {
       mobile: that.data.mobile,
       checkCode: that.data.code,
-      userid:that.data.userInfo.userid
+      userid: that.data.userInfo.userid
     }
     neil.post(url, params, function (res) {
       //账号登录成功缓存个人信息供使用 授权之后会再次完善个人信息
@@ -158,12 +163,12 @@ Page({
       wx.navigateBack({
         delta: 1
       })
-    },null,false)
+    }, null, false)
 
   }),
 
   // 用户须知
-  goWebview:util.debounce(function() {
+  goWebview: util.debounce(function () {
     wx.navigateTo({
       url: '/pages/webwiew/webview?type=1',
     })

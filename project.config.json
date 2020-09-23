@@ -1,334 +1,340 @@
 {
-	"description": "项目配置文件",
-	"packOptions": {
-		"ignore": []
-	},
-	"setting": {
-		"urlCheck": false,
-		"es6": true,
-		"enhance": true,
-		"postcss": true,
-		"preloadBackgroundData": false,
-		"minified": true,
-		"newFeature": true,
-		"coverView": true,
-		"nodeModules": false,
-		"autoAudits": false,
-		"showShadowRootInWxmlPanel": true,
-		"scopeDataCheck": false,
-		"uglifyFileName": false,
-		"checkInvalidKey": true,
-		"checkSiteMap": true,
-		"uploadWithSourceMap": true,
-		"compileHotReLoad": false,
-		"babelSetting": {
-			"ignore": [],
-			"disablePlugins": [],
-			"outputPath": ""
-		},
-		"useIsolateContext": true,
-		"useCompilerModule": false,
-		"userConfirmedUseCompilerModuleSwitch": false,
-		"packNpmManually": false,
-		"packNpmRelationList": []
-	},
-	"compileType": "miniprogram",
-	"libVersion": "2.11.1",
-	"appid": "wx63e20f6839c13e2b",
-	"projectname": "hamster",
-	"debugOptions": {
-		"hidedInDevtools": []
-	},
-	"isGameTourist": false,
-	"simulatorType": "wechat",
-	"simulatorPluginLibVersion": {},
-	"condition": {
-		"search": {
-			"current": -1,
-			"list": []
-		},
-		"conversation": {
-			"current": -1,
-			"list": []
-		},
-		"plugin": {
-			"current": -1,
-			"list": []
-		},
-		"game": {
-			"currentL": -1,
-			"list": []
-		},
-		"gamePlugin": {
-			"current": -1,
-			"list": []
-		},
-		"miniprogram": {
-			"current": -1,
-			"list": [
-				{
-					"id": -1,
-					"name": "pages/car/car",
-					"pathName": "pages/car/car",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 1,
-					"name": "pages/way/way",
-					"pathName": "pages/way/way",
-					"query": "num=2&id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/addressList/addressList",
-					"pathName": "pages/addressList/addressList",
-					"query": "num=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/addAddress/addAddress",
-					"pathName": "pages/addAddress/addAddress",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/order/order",
-					"pathName": "pages/order/order",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 5,
-					"name": "pages/orderStatus/orderStatus",
-					"pathName": "pages/orderStatus/orderStatus",
-					"query": "IsStatus =1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/log/log",
-					"pathName": "pages/log/log",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/my/my",
-					"pathName": "pages/my/my",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/user/user",
-					"pathName": "pages/user/user",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 9,
-					"name": "pages/index/index",
-					"pathName": "pages/index/index",
-					"query": "",
-					"scene": 1036,
-					"referrerInfo": {
-						"appId": ""
-					}
-				},
-				{
-					"id": -1,
-					"name": "pages/list/list",
-					"pathName": "pages/list/list",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/search/search",
-					"pathName": "pages/search/search",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 12,
-					"name": "pages/webwiew/webview",
-					"pathName": "pages/webwiew/webview",
-					"query": "type=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/login/login",
-					"pathName": "pages/login/login",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/warrant/warrant",
-					"pathName": "pages/warrant/warrant",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 15,
-					"name": "pages/spot/spot",
-					"pathName": "pages/spot/spot",
-					"query": "num=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/information/information",
-					"pathName": "pages/information/information",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/share/share",
-					"pathName": "pages/share/share",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/convert/convert",
-					"pathName": "pages/convert/convert",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 19,
-					"name": "pages/orderDetail/orderDetail",
-					"pathName": "pages/orderDetail/orderDetail",
-					"query": "status=2&id=362",
-					"scene": null
-				},
-				{
-					"id": 20,
-					"name": "pages/detail/detail",
-					"pathName": "pages/detail/detail",
-					"query": "status=2&id=361",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/payList/payList",
-					"pathName": "pages/payList/payList",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": 22,
-					"name": "pages/orderPay/orderPay",
-					"pathName": "pages/orderPay/orderPay",
-					"query": "ordercode=2007161063399901&paymoney=9140",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/guide/guide",
-					"pathName": "pages/guide/guide",
-					"query": "id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/apply/apply",
-					"pathName": "pages/apply/apply",
-					"query": "status=2&id=43",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/protocol/protocol",
-					"pathName": "pages/protocol/protocol",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/wait/wait",
-					"pathName": "pages/wait/wait",
-					"query": "isstatus=3&status=5",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/draw/draw",
-					"pathName": "pages/draw/draw",
-					"query": "num=2&id=1",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/drawSuc/drawSuc",
-					"pathName": "pages/drawSuc/drawSuc",
-					"query": "num=2&id=1",
-					"scene": null
-				},
-				{
-					"id": 29,
-					"name": "pages/payok/payok",
-					"pathName": "pages/payok/payok",
-					"query": "orderno=2008071258789093&realpay=5880",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/payeor/payeor",
-					"pathName": "pages/payeor/payeor",
-					"query": "orderno=2008071258789093&realpay=5880",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/myGroup/myGroup",
-					"pathName": "pages/myGroup/myGroup",
-					"query": "",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/myGroup/myGroup",
-					"pathName": "pages/myGroup/myGroup",
-					"query": "num=2",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/drawLog/drawLog",
-					"pathName": "pages/drawLog/drawLog",
-					"query": "num=2",
-					"scene": null
-				},
-				{
-					"id": 34,
-					"name": "pages/orderSDetail/orderSDetail",
-					"pathName": "pages/orderSDetail/orderSDetail",
-					"query": "status=2&id=400",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/webview1/webview1",
-					"pathName": "pages/webview1/webview1",
-					"query": "status=2&id=400",
-					"scene": null
-				},
-				{
-					"id": -1,
-					"name": "pages/list1/list1",
-					"pathName": "pages/list1/list1",
-					"query": "",
-					"scene": null
-				}
-			]
-		}
-	}
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": true,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": false,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": false,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": []
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.11.1",
+  "appid": "wx63e20f6839c13e2b",
+  "projectname": "hamster",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "current": -1,
+      "list": []
+    },
+    "conversation": {
+      "current": -1,
+      "list": []
+    },
+    "plugin": {
+      "current": -1,
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "current": -1,
+      "list": []
+    },
+    "miniprogram": {
+      "current": -1,
+      "list": [
+        {
+          "id": -1,
+          "name": "pages/car/car",
+          "pathName": "pages/car/car",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 1,
+          "name": "pages/way/way",
+          "pathName": "pages/way/way",
+          "query": "num=2&id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/addressList/addressList",
+          "pathName": "pages/addressList/addressList",
+          "query": "num=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/addAddress/addAddress",
+          "pathName": "pages/addAddress/addAddress",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/order/order",
+          "pathName": "pages/order/order",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 5,
+          "name": "pages/orderStatus/orderStatus",
+          "pathName": "pages/orderStatus/orderStatus",
+          "query": "IsStatus =1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/log/log",
+          "pathName": "pages/log/log",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/my/my",
+          "pathName": "pages/my/my",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/user/user",
+          "pathName": "pages/user/user",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 9,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "scene= F0EA0FB2498D5D3D",
+          "scene": 1012
+        },
+        {
+          "id": -1,
+          "name": "pages/list/list",
+          "pathName": "pages/list/list",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/search/search",
+          "pathName": "pages/search/search",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "pages/webwiew/webview",
+          "pathName": "pages/webwiew/webview",
+          "query": "type=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/login/login",
+          "pathName": "pages/login/login",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/warrant/warrant",
+          "pathName": "pages/warrant/warrant",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 15,
+          "name": "pages/spot/spot",
+          "pathName": "pages/spot/spot",
+          "query": "num=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/information/information",
+          "pathName": "pages/information/information",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/share/share",
+          "pathName": "pages/share/share",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/convert/convert",
+          "pathName": "pages/convert/convert",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 19,
+          "name": "pages/orderDetail/orderDetail",
+          "pathName": "pages/orderDetail/orderDetail",
+          "query": "status=2&id=362",
+          "scene": null
+        },
+        {
+          "id": 20,
+          "name": "pages/detail/detail",
+          "pathName": "pages/detail/detail",
+          "query": "status=2&id=361",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/payList/payList",
+          "pathName": "pages/payList/payList",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 22,
+          "name": "pages/orderPay/orderPay",
+          "pathName": "pages/orderPay/orderPay",
+          "query": "ordercode=2007161063399901&paymoney=9140",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/guide/guide",
+          "pathName": "pages/guide/guide",
+          "query": "id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/apply/apply",
+          "pathName": "pages/apply/apply",
+          "query": "status=2&id=43",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/protocol/protocol",
+          "pathName": "pages/protocol/protocol",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/wait/wait",
+          "pathName": "pages/wait/wait",
+          "query": "isstatus=3&status=5",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/draw/draw",
+          "pathName": "pages/draw/draw",
+          "query": "num=2&id=1",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/drawSuc/drawSuc",
+          "pathName": "pages/drawSuc/drawSuc",
+          "query": "num=2&id=1",
+          "scene": null
+        },
+        {
+          "id": 29,
+          "name": "pages/payok/payok",
+          "pathName": "pages/payok/payok",
+          "query": "orderno=2008071258789093&realpay=5880",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/payeor/payeor",
+          "pathName": "pages/payeor/payeor",
+          "query": "orderno=2008071258789093&realpay=5880",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/myGroup/myGroup",
+          "pathName": "pages/myGroup/myGroup",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/myGroup/myGroup",
+          "pathName": "pages/myGroup/myGroup",
+          "query": "num=2",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/drawLog/drawLog",
+          "pathName": "pages/drawLog/drawLog",
+          "query": "num=2",
+          "scene": null
+        },
+        {
+          "id": 34,
+          "name": "pages/orderSDetail/orderSDetail",
+          "pathName": "pages/orderSDetail/orderSDetail",
+          "query": "status=2&id=400",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/webview1/webview1",
+          "pathName": "pages/webview1/webview1",
+          "query": "status=2&id=400",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/list1/list1",
+          "pathName": "pages/list1/list1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 37,
+          "name": "pages/index/index",
+          "pathName": "pages/index/index",
+          "query": "",
+          "scene": 1011
+        }
+      ]
+    }
+  }
 }

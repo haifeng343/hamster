@@ -10,7 +10,7 @@
 			<image src="../../image/right.png" wx:else class="right"></image>
 		</view>
 	</view>
-	<view class="item" data-num="{{2}}" wx:if="{{user}}" bindtap="goMyOrder">
+	<view class="item" data-num="{{2}}" wx:if="{{user.realname}}" bindtap="goMyOrder">
 		<view class="item-left">
 			<view class="item-title">银行卡录入</view>
 		</view>

@@ -77,9 +77,12 @@ Page({
       },
     ],
     pc: wx.getStorageSync('pc') || 2,
+    userInfo:wx.getStorageSync('userInfo') || null,
   },
   onLoad(options) {
-
+    if(options.q){
+      wx.setStorageSync('scene', decodeURIComponent(options.q).substring(30,decodeURIComponent(options.q).length) || null);
+    }
     this.getPc();
     if (options.scene) {
       wx.setStorageSync('scene', options.scene || null);
@@ -99,15 +102,26 @@ Page({
     }
 
   },
-
+  init() {},
   onShow() {
 
   },
+  toList() {
+    wx.navigateTo({
+      url: '/pages/list/list',
+    })
+  },
 
   toShare() {
-    wx.navigateTo({
-      url: '/pages/share/share',
-    })
+    if (this.data.userInfo) {
+      wx.navigateTo({
+        url: '/pages/share/share',
+      })
+    } else {
+      wx.navigateTo({
+        url: '/pages/warrant/warrant',
+      })
+    }
   },
 
   addClass(e) {

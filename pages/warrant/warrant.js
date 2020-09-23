@@ -20,6 +20,7 @@ Page({
   // 获取授权
   getUserInfo(e) {
     let that = this;
+    console.log(wx.getStorageSync('scene'))
     wx.login({
       success: res => {
         // console.log(res.code);return;
